@@ -8,6 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
+        if (Schema::hasTable('content_blocks')) {
+            return;
+        }
+
         Schema::create('content_blocks', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique();

@@ -8,6 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
+        if (Schema::hasTable('content_assets')) {
+            return;
+        }
+
         Schema::create('content_assets', function (Blueprint $table) {
             $table->id();
             $table->text('original_url');
