@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Http\Requests\Api\ContactStoreRequest;
 use App\Mail\Admin\ContactSubmittedMail;
@@ -10,7 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 
-class ContactController extends ApiController
+class ContactController extends Controller
 {
     public function __invoke(ContactStoreRequest $request): JsonResponse
     {
