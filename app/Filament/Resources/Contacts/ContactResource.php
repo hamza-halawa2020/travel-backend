@@ -28,12 +28,12 @@ class ContactResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('Contact');
+        return 'Contact';
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('Contacts');
+        return 'Contacts';
     }
 
     public static function form(Schema $schema): Schema
@@ -41,23 +41,23 @@ class ContactResource extends Resource
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->label(__('Name'))
+                    ->label('Name')
                     ->required(),
                 TextInput::make('phone')
-                    ->label(__('Phone'))
+                    ->label('Phone')
                     ->tel()
                     ->required(),
                 TextInput::make('email')
-                    ->label(__('Email'))
+                    ->label('Email')
                     ->email(),
                 TextInput::make('service')
-                    ->label(__('Service')),
+                    ->label('Service'),
                 TextInput::make('from')
-                    ->label(__('From / Pickup')),
+                    ->label('From / Pickup'),
                 TextInput::make('to')
-                    ->label(__('To / Destination')),
+                    ->label('To / Destination'),
                 Textarea::make('details')
-                    ->label(__('Travel Details'))
+                    ->label('Travel Details')
                     ->columnSpanFull(),
             ]);
     }
@@ -67,22 +67,22 @@ class ContactResource extends Resource
         return $schema
             ->components([
                 TextEntry::make('name')
-                    ->label(__('Name')),
+                    ->label('Name'),
                 TextEntry::make('phone')
-                    ->label(__('Phone')),
+                    ->label('Phone'),
                 TextEntry::make('email')
-                    ->label(__('Email')),
+                    ->label('Email'),
                 TextEntry::make('service')
-                    ->label(__('Service')),
+                    ->label('Service'),
                 TextEntry::make('from')
-                    ->label(__('From / Pickup')),
+                    ->label('From / Pickup'),
                 TextEntry::make('to')
-                    ->label(__('To / Destination')),
+                    ->label('To / Destination'),
                 TextEntry::make('details')
-                    ->label(__('Travel Details'))
+                    ->label('Travel Details')
                     ->columnSpanFull(),
                 TextEntry::make('created_at')
-                    ->label(__('Created At'))
+                    ->label('Created At')
                     ->dateTime()
                     ->placeholder('-'),
             ]);
@@ -95,27 +95,27 @@ class ContactResource extends Resource
             ->defaultSort('created_at', 'desc')
             ->columns([
                 TextColumn::make('name')
-                    ->label(__('Name'))
+                    ->label('Name')
                     ->searchable(),
                 TextColumn::make('phone')
-                    ->label(__('Phone'))
+                    ->label('Phone')
                     ->searchable(),
                 TextColumn::make('email')
-                    ->label(__('Email'))
+                    ->label('Email')
                     ->searchable(),
                 TextColumn::make('service')
-                    ->label(__('Service'))
+                    ->label('Service')
                     ->searchable(),
                 TextColumn::make('from')
-                    ->label(__('From / Pickup'))
+                    ->label('From / Pickup')
                     ->searchable()
                     ->toggleable(),
                 TextColumn::make('to')
-                    ->label(__('To / Destination'))
+                    ->label('To / Destination')
                     ->searchable()
                     ->toggleable(),
                 TextColumn::make('created_at')
-                    ->label(__('Created At'))
+                    ->label('Created At')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
