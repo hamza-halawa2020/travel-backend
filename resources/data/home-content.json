@@ -1,0 +1,831 @@
+{
+  "hero": {
+    "eyebrow": "London-Based Luxury Travel Company",
+    "title": "Bespoke travel,",
+    "accent": "personally arranged.",
+    "description": "Luxury hotels and residences, private jet and helicopter charters, yacht experiences, VIP airport services, chauffeur-driven transfers and personalised concierge services through one trusted point of contact.",
+    "slides": [
+      {
+        "image": "assets/images/Whatsmag026-09-10a.45.20PM.jpeg",
+        "alt": "Luxury hotel lobby",
+        "link": "/journal/private-villas-exclusive-use-travel"
+      },
+      {
+        "image": "assets/images/plan.jpeg",
+        "alt": "Private jet on the runway",
+        "link": "/journal/how-to-book-business-class-flights"
+      },
+      {
+        "image": "assets/images/car2.jpeg",
+        "alt": "Luxury yacht at sea",
+        "link": "/journal/luxury-cruise-guide-2026"
+      },
+      {
+        "image": "assets/images/yackth.jpeg",
+        "alt": "Five-star resort pool",
+        "link": "/journal/luxury-wellness-retreats-2026"
+      }
+    ],
+    "actions": {
+      "primaryLabel": "Explore Services",
+      "primaryHref": "#services",
+      "secondaryLabel": "Speak to an Advisor"
+    }
+  },
+  "ticker": [
+    "London",
+    "Saudi Arabia",
+    "UAE",
+    "Qatar",
+    "Cannes",
+    "Monaco",
+    "St Tropez",
+    "French Riviera",
+    "Europe",
+    "Mediterranean",
+    "South of France",
+    "Dubai"
+  ],
+  "intro": {
+    "eyebrow": "About Total Stay Tours",
+    "title": "Luxury travel, coordinated through one trusted point of contact.",
+    "body": "Total Stay Tours is a London-based luxury travel company with over a decade of experience in the travel industry, having been established in 2014. We specialise in creating bespoke travel experiences for discerning travellers from the GCC and beyond, with a strong focus on Saudi Arabia, the UAE, Qatar and other international markets. We go beyond traditional travel arrangements, bringing together luxury hotels and residences, private jet and helicopter charters, yacht experiences, VIP airport services, chauffeur-driven transfers and personalised concierge services.",
+    "paragraphs": [
+      "Total Stay Tours is a London-based luxury travel company with over a decade of experience in the travel industry, having been established in 2014.",
+      "We specialise in creating bespoke travel experiences for discerning travellers from the GCC and beyond, with a strong focus on Saudi Arabia, the UAE, Qatar and other international markets.",
+      "We go beyond traditional travel arrangements, bringing together luxury hotels and residences, private jet and helicopter charters, yacht experiences, VIP airport services, chauffeur-driven transfers and personalised concierge services.",
+      "Since 2014, we have built a trusted network of hotels, aviation companies, yacht operators, chauffeurs and luxury service providers, allowing us to coordinate every element of a journey through one trusted point of contact.",
+      "We understand that luxury travel is personal. That is why we take the time to understand each client's preferences and requirements, creating seamless, tailor-made experiences designed around their lifestyle.",
+      "Whether you are planning a family holiday in London, a private jet journey across Europe, a yacht charter in the South of France, or a complete luxury itinerary, Total Stay Tours is here to take care of every detail."
+    ],
+    "stats": [
+      {
+        "value": "2014",
+        "label": "Established"
+      },
+      {
+        "value": "10+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "GCC",
+        "label": "Client Focus"
+      },
+      {
+        "value": "24/7",
+        "label": "Journey Support"
+      }
+    ]
+  },
+  "clientSections": [
+    {
+      "id": "about-us",
+      "eyebrow": "About Total Stay Tours",
+      "title": "About Total Stay Tours",
+      "paragraphs": [
+        "Total Stay Tours is a London-based luxury travel company with over a decade of experience in the travel industry, having been established in 2014.",
+        "We specialise in creating bespoke travel experiences for discerning travellers from the GCC and beyond, with a strong focus on Saudi Arabia, the UAE, Qatar and other international markets.",
+        "We go beyond traditional travel arrangements, bringing together luxury hotels and residences, private jet and helicopter charters, yacht experiences, VIP airport services, chauffeur-driven transfers and personalised concierge services.",
+        "Since 2014, we have built a trusted network of hotels, aviation companies, yacht operators, chauffeurs and luxury service providers, allowing us to coordinate every element of a journey through one trusted point of contact.",
+        "We understand that luxury travel is personal. That is why we take the time to understand each client's preferences and requirements, creating seamless, tailor-made experiences designed around their lifestyle.",
+        "Whether you are planning a family holiday in London, a private jet journey across Europe, a yacht charter in the South of France, or a complete luxury itinerary, Total Stay Tours is here to take care of every detail."
+      ],
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&h=1400&q=82",
+      "alt": "London skyline"
+    },
+    {
+      "id": "hotels",
+      "eyebrow": "Luxury Hotels",
+      "title": "Luxury Hotels & Serviced Apartments",
+      "paragraphs": [
+        "Discover a carefully selected collection of 5-star hotels and luxury serviced residences in London and across Europe, offering exceptional comfort, prime locations and personalised service.",
+        "At Total Stay Tours, we work closely with leading hotels and luxury properties to provide our clients with exclusive rates and added benefits, subject to availability."
+      ],
+      "listTitle": "Our Luxury Hotel Services",
+      "items": [
+        "5-Star Hotels in London and Europe",
+        "Luxury Serviced Apartments & Residences",
+        "Exclusive & Preferred Rates",
+        "Complimentary Breakfast Options",
+        "Complimentary or Preferred Airport Transfer Offers",
+        "Suite & Room Upgrade Requests",
+        "VIP Welcome Arrangements",
+        "Special Offers for Families",
+        "Tailored Offers for GCC Clients",
+        "Long-Stay & Extended-Stay Arrangements",
+        "Personalised Hotel Recommendations"
+      ],
+      "closing": [
+        "Whether you are travelling with family, planning a business trip or looking for a luxurious long stay in London, our team can recommend and arrange the right property based on your preferences and requirements.",
+        "Competitive rates, Luxury accommodation, carefully selected around you."
+      ],
+      "image": "/assets/images/WhatsApe2026-0901.37.09_PM.jpeg",
+      "alt": "Luxury hotel lobby",
+      "reversed": true
+    },
+    {
+      "id": "services",
+      "eyebrow": "Our Services",
+      "title": "Our Services",
+      "paragraphs": [
+        "At Total Stay Tours, we provide a complete range of luxury travel services, carefully tailored to meet the needs of discerning travellers from the GCC and beyond."
+      ],
+      "groups": [
+        {
+          "title": "Luxury Hotels & Serviced Apartments",
+          "items": [
+            "5-Star Hotels in London and Europe",
+            "Exclusive & Preferred Rates",
+            "Suite & Room Upgrade Requests"
+          ]
+        },
+        {
+          "title": "Private Aviation",
+          "items": [
+            "Private Jet Charters",
+            "Private Helicopter Charters"
+          ]
+        },
+        {
+          "title": "Yacht Charters",
+          "items": [
+            "Luxury Yacht Charters",
+            "Day & Multi-Day Charters",
+            "Cannes, Monaco, St Tropez & Mediterranean",
+            "Yacht Transfers & Excursions",
+            "Onboard Catering & Personalised Experiences",
+            "Bespoke Yacht Itineraries"
+          ]
+        },
+        {
+          "title": "Chauffeur & Luxury Transportation",
+          "items": [
+            "Luxury Chauffeur Services",
+            "Airport Transfers",
+            "Full-Day Chauffeur Hire",
+            "Luxury Cars & SUVs",
+            "Intercity Transfers",
+            "Personalised Transportation"
+          ]
+        },
+        {
+          "title": "Bespoke Travel Planning",
+          "items": [],
+          "closing": [
+            "From a luxury weekend in London to a fully customised European journey, we coordinate every detail of your trip through one trusted point of contact.",
+            "One company. One point of contact. Every detail taken care of."
+          ]
+        }
+      ],
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&h=1400&q=82",
+      "alt": "Luxury European travel"
+    },
+    {
+      "id": "private-aviation",
+      "eyebrow": "Private Aviation",
+      "title": "Private Aviation",
+      "paragraphs": [
+        "Through our trusted network of established aviation partners, Total Stay Tours provides access to a wide selection of private aircraft, from light and midsize jets to super-midsize and long-range aircraft, as well as private helicopters.",
+        "We carefully source each aircraft based on your destination, schedule, number of passengers and specific requirements, while focusing on competitive rates and value without compromising on quality or service."
+      ],
+      "listTitle": "Our Private Aviation Services",
+      "items": [
+        "Private Jet Charters",
+        "Private Helicopter Charters",
+        "Aircraft Sourcing",
+        "Bespoke Flight Planning",
+        "Multi-Destination Journeys",
+        "Luxury Ground Transfers",
+        "Special Aviation Requests"
+      ],
+      "closing": [
+        "Whether you require a private jet for a European getaway, a helicopter transfer between destinations, or a fully customised multi-leg journey, our team compares suitable options to help secure competitive pricing and the right aircraft for your journey.",
+        "Exceptional aircraft. Competitive rates. Personalised service."
+      ],
+      "image": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1200&h=1400&q=82",
+      "alt": "Private jet on runway",
+      "reversed": true
+    },
+    {
+      "id": "yacht-charters",
+      "eyebrow": "Yacht Charters",
+      "title": "Yacht Charters",
+      "paragraphs": [
+        "At Total Stay Tours, we arrange bespoke yacht charter experiences across some of the most sought-after destinations in the Mediterranean and beyond.",
+        "Through our trusted network of yacht partners, we provide access to a carefully selected range of luxury yachts, from elegant day boats to spacious motor yachts, suitable for private day trips, family holidays, celebrations and multi-day charters.",
+        "We focus on finding the right yacht at a competitive rate, while maintaining high standards of quality, comfort and service. Our team compares suitable options based on your preferred destination, dates, number of guests, itinerary and onboard requirements to help secure the best available value."
+      ],
+      "listTitle": "Our Yacht Charter Services",
+      "items": [
+        "Luxury Yacht Charters",
+        "Day & Multi-Day Charters",
+        "Cannes, Monaco & St Tropez",
+        "Mediterranean Yacht Experiences",
+        "Bespoke Yacht Itineraries",
+        "Private Transfers & Excursions",
+        "Onboard Catering",
+        "Water Sports & Activities",
+        "Special Yacht Requests"
+      ],
+      "closing": [
+        "From a relaxing day cruising along the French Riviera to a fully customised multi-day Mediterranean itinerary, our team coordinates the yacht, itinerary and additional arrangements around your requirements.",
+        "Luxury yachts. Competitive rates. Unforgettable experiences."
+      ],
+      "image": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1200&h=1400&q=82",
+      "alt": "Luxury yacht at sea"
+    }
+  ],
+  "services": [
+    {
+      "id": "hotels",
+      "eyebrow": "No. 01",
+      "title": "Luxury Hotels",
+      "summary": "Discover a carefully selected collection of 5-star hotels and luxury serviced residences in London and across Europe, offering exceptional comfort, prime locations and personalised service.",
+      "details": [
+        "At Total Stay Tours, we work closely with leading hotels and luxury properties to provide our clients with exclusive rates and added benefits, subject to availability."
+      ],
+      "image": "/assets/images/WhatsApe2026-0901.37.09_PM.jpeg",
+      "link": "/journal/private-villas-exclusive-use-travel",
+      "tag": "Hotel Desk",
+      "listTitle": "Our Luxury Hotel Services",
+      "highlights": [
+        "5-Star Hotels in London and Europe",
+        "Luxury Serviced Apartments & Residences",
+        "Exclusive & Preferred Rates",
+        "Complimentary Breakfast Options",
+        "Complimentary or Preferred Airport Transfer Offers",
+        "Suite & Room Upgrade Requests",
+        "VIP Welcome Arrangements",
+        "Special Offers for Families",
+        "Tailored Offers for GCC Clients",
+        "Long-Stay & Extended-Stay Arrangements",
+        "Personalised hotel recommendations"
+      ],
+      "closing": [
+        "Whether you are travelling with family, planning a business trip or looking for a luxurious long stay in London, our team can recommend and arrange the right property based on your preferences and requirements.",
+        "Competitive rates, Luxury accommodation, carefully selected around you."
+      ],
+      "ctaLabel": "Request Hotel Options",
+      "form": {
+        "department": "info@totalstaytours.co.uk",
+        "service": "Luxury Hotels",
+        "submitLabel": "Request Hotel Options",
+        "fields": [
+          {
+            "label": "Full Name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": true
+          },
+          {
+            "label": "Phone / WhatsApp",
+            "name": "phone",
+            "type": "tel",
+            "autocomplete": "tel",
+            "required": true
+          },
+          {
+            "label": "Destination",
+            "name": "from",
+            "type": "text",
+            "placeholder": "London"
+          },
+          {
+            "label": "Guests / Nights",
+            "name": "to",
+            "type": "text",
+            "placeholder": "e.g. 2 guests, 5 nights"
+          },
+          {
+            "label": "Dates & Preferences",
+            "name": "details",
+            "type": "text",
+            "placeholder": "Room type, family needs, long stay, VIP requests",
+            "full": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "private-aviation",
+      "eyebrow": "No. 02",
+      "title": "Private Aviation",
+      "summary": "Through our trusted network of established aviation partners, Total Stay Tours provides access to a wide selection of private aircraft, from light and midsize jets to super-midsize and long-range aircraft, as well as private helicopters.",
+      "details": [
+        "We carefully source each aircraft based on your destination, schedule, number of passengers and specific requirements, while focusing on competitive rates and value without compromising on quality or service."
+      ],
+      "image": "assets/images/plan2.jpeg",
+      "link": "/journal/how-to-book-business-class-flights",
+      "tag": "Private Aviation",
+      "listTitle": "Our Private Aviation Services",
+      "highlights": [
+        "Private Jet Charters",
+        "Private Helicopter Charters",
+        "Aircraft Sourcing",
+        "Bespoke Flight Planning",
+        "Multi-Destination Journeys",
+        "Luxury Ground Transfers",
+        "Special Aviation Requests"
+      ],
+      "closing": [
+        "Whether you require a private jet for a European getaway, a helicopter transfer between destinations, or a fully customised multi-leg journey, our team compares suitable options to help secure competitive pricing and the right aircraft for your journey.",
+        "Exceptional aircraft. Competitive rates. Personalised service."
+      ],
+      "ctaLabel": "Request Charter Quote",
+      "reversed": true,
+      "form": {
+        "department": "private@totalstaytours.co.uk",
+        "service": "Private Aviation",
+        "submitLabel": "Request Charter Quote",
+        "fields": [
+          {
+            "label": "Full Name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": true
+          },
+          {
+            "label": "Phone / WhatsApp",
+            "name": "phone",
+            "type": "tel",
+            "autocomplete": "tel",
+            "required": true
+          },
+          {
+            "label": "Route",
+            "name": "from",
+            "type": "text",
+            "placeholder": "London to Nice"
+          },
+          {
+            "label": "Passengers",
+            "name": "to",
+            "type": "text",
+            "placeholder": "e.g. 6"
+          },
+          {
+            "label": "Dates & Requirements",
+            "name": "details",
+            "type": "text",
+            "placeholder": "Aircraft preference, catering, helicopter transfer",
+            "full": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "yacht-charters",
+      "eyebrow": "No. 03",
+      "title": "Yacht Charters",
+      "summary": "At Total Stay Tours, we arrange bespoke yacht charter experiences across some of the most sought-after destinations in the Mediterranean and beyond.",
+      "details": [
+        "Through our trusted network of yacht partners, we provide access to a carefully selected range of luxury yachts, from elegant day boats to spacious motor yachts, suitable for private day trips, family holidays, celebrations and multi-day charters.",
+        "We focus on finding the right yacht at a competitive rate, while maintaining high standards of quality, comfort and service. Our team compares suitable options based on your preferred destination, dates, number of guests, itinerary and onboard requirements to help secure the best available value."
+      ],
+      "image": "assets/images/yackht2.jpeg",
+      "link": "/journal/luxury-cruise-guide-2026",
+      "tag": "Yacht Charters",
+      "listTitle": "Our Yacht Charter Services",
+      "highlights": [
+        "Luxury Yacht Charters",
+        "Day & Multi-Day Charters",
+        "Cannes, Monaco, St Tropez",
+        "Mediterranean Yacht Experiences",
+        "Bespoke Yacht Itineraries",
+        "Private Transfers & Excursions",
+        "Onboard Catering",
+        "Water Sports & Activities",
+        "Special Yacht Requests"
+      ],
+      "closing": [
+        "From a relaxing day cruising along the French Riviera to a fully customised multi-day Mediterranean itinerary, our team coordinates the yacht, itinerary and additional arrangements around your requirements.",
+        "Luxury yachts. Competitive rates. Unforgettable experiences."
+      ],
+      "ctaLabel": "Request Yacht Options",
+      "form": {
+        "department": "private@totalstaytours.co.uk",
+        "service": "Yacht Charters",
+        "submitLabel": "Request Yacht Options",
+        "fields": [
+          {
+            "label": "Full Name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": true
+          },
+          {
+            "label": "Phone / WhatsApp",
+            "name": "phone",
+            "type": "tel",
+            "autocomplete": "tel",
+            "required": true
+          },
+          {
+            "label": "Destination",
+            "name": "from",
+            "type": "text",
+            "placeholder": "Monaco"
+          },
+          {
+            "label": "Guests",
+            "name": "to",
+            "type": "text",
+            "placeholder": "e.g. 8 guests"
+          },
+          {
+            "label": "Dates & Onboard Requirements",
+            "name": "details",
+            "type": "text",
+            "placeholder": "Day charter, multi-day, catering, water sports",
+            "full": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "chauffeur-transportation",
+      "eyebrow": "No. 04",
+      "title": "Chauffeur & Luxury Transportation",
+      "summary": "Luxury chauffeur services, airport transfers, full-day chauffeur hire, luxury cars and SUVs, intercity transfers and personalised transportation arranged around your schedule.",
+      "image": "assets/images/car2.jpeg",
+      "link": "/journal/corporate-travel-credit-facility",
+      "tag": "Transportation",
+      "highlights": [
+        "Luxury chauffeur services",
+        "Airport transfers",
+        "Full-day chauffeur hire",
+        "Luxury cars and SUVs",
+        "Intercity transfers",
+        "Personalised transportation"
+      ],
+      "ctaLabel": "Arrange Transport",
+      "reversed": true,
+      "form": {
+        "department": "info@totalstaytours.co.uk",
+        "service": "Chauffeur & Luxury Transportation",
+        "submitLabel": "Arrange Transport",
+        "fields": [
+          {
+            "label": "Full Name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": true
+          },
+          {
+            "label": "Phone / WhatsApp",
+            "name": "phone",
+            "type": "tel",
+            "autocomplete": "tel",
+            "required": true
+          },
+          {
+            "label": "Pickup",
+            "name": "from",
+            "type": "text",
+            "placeholder": "Heathrow Airport"
+          },
+          {
+            "label": "Drop-off / Hours",
+            "name": "to",
+            "type": "text",
+            "placeholder": "Mayfair or full-day hire"
+          },
+          {
+            "label": "Vehicle & Timing Notes",
+            "name": "details",
+            "type": "text",
+            "placeholder": "Passengers, luggage, preferred vehicle, schedule",
+            "full": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "vip-services",
+      "eyebrow": "Services",
+      "title": "VIP Services",
+      "summary": "Our VIP services are designed for travellers who value comfort, privacy and seamless coordination from the moment they arrive.",
+      "details": [
+        "From airport assistance and luxury transfers to bespoke arrangements, our team coordinates every detail to ensure a smooth and personalised experience."
+      ],
+      "image": "assets/images/vip-services.jpeg",
+      "link": "/journal/corporate-travel-credit-facility",
+      "tag": "VIP Services",
+      "listTitle": "Our VIP Services",
+      "highlights": [
+        "VIP Airport Services",
+        "Meet & Assist",
+        "Luxury Chauffeur Transfers",
+        "Airport Transfers",
+        "Private Car Services",
+        "Bespoke Travel Arrangements"
+      ],
+      "closing": [
+        "Personalised Service",
+        "Every arrangement can be tailored around your schedule, preferences and requirements, with a focus on comfort, efficiency and discretion"
+      ],
+      "ctaLabel": "Arrange VIP Service",
+      "form": {
+        "department": "private@totalstaytours.co.uk",
+        "service": "VIP Services",
+        "submitLabel": "Arrange VIP Service",
+        "fields": [
+          {
+            "label": "Full Name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": true
+          },
+          {
+            "label": "Phone / WhatsApp",
+            "name": "phone",
+            "type": "tel",
+            "autocomplete": "tel",
+            "required": true
+          },
+          {
+            "label": "Destination",
+            "name": "from",
+            "type": "text",
+            "placeholder": "London, Europe or Mediterranean"
+          },
+          {
+            "label": "Travellers",
+            "name": "to",
+            "type": "text",
+            "placeholder": "e.g. family of 4"
+          },
+          {
+            "label": "Tell us what you need",
+            "name": "details",
+            "type": "text",
+            "placeholder": "Airport assistance, chauffeur transfers, bespoke arrangements",
+            "full": true
+          }
+        ]
+      }
+    }
+  ],
+  "payments": [
+    {
+      "glyph": "i.",
+      "title": "Competitive Rates",
+      "body": "We compare suitable options through trusted partners to help secure competitive pricing without compromising quality or service."
+    },
+    {
+      "glyph": "ii.",
+      "title": "Trusted Network",
+      "body": "Since 2014, we have built a network of hotels, aviation companies, yacht operators, chauffeurs and luxury service providers."
+    },
+    {
+      "glyph": "iii.",
+      "title": "Tailor-Made Planning",
+      "body": "Every journey is designed around the client's preferences, requirements, lifestyle and preferred standard of service."
+    },
+    {
+      "glyph": "iv.",
+      "title": "One Point of Contact",
+      "body": "Hotels, aviation, yachts, transfers and concierge arrangements are coordinated through one trusted team."
+    }
+  ],
+  "destinations": [
+    {
+      "name": "London",
+      "region": "United Kingdom",
+      "description": "Luxury hotels, serviced residences, family stays, chauffeur transfers and concierge services.",
+      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/private-villas-exclusive-use-travel"
+    },
+    {
+      "name": "Cannes",
+      "region": "French Riviera",
+      "description": "Yacht charters, private transfers and Mediterranean experiences.",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/luxury-cruise-guide-2026"
+    },
+    {
+      "name": "Monaco",
+      "region": "Mediterranean",
+      "description": "Luxury yacht days, private arrivals and high-touch city stays.",
+      "image": "https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/luxury-cruise-guide-2026"
+    },
+    {
+      "name": "St Tropez",
+      "region": "South of France",
+      "description": "Day boats, celebrations, beach clubs and bespoke yacht itineraries.",
+      "image": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/luxury-cruise-guide-2026"
+    },
+    {
+      "name": "Dubai",
+      "region": "UAE",
+      "description": "Luxury hotels, private transfers and GCC-focused travel arrangements.",
+      "image": "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/dubai-luxury-travel-guide-2026"
+    },
+    {
+      "name": "Doha",
+      "region": "Qatar",
+      "description": "Discreet hotel, aviation and concierge arrangements for private clients.",
+      "image": "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/how-to-book-business-class-flights"
+    },
+    {
+      "name": "Riyadh",
+      "region": "Saudi Arabia",
+      "description": "Bespoke planning for clients travelling from Saudi Arabia to London, Europe and beyond.",
+      "image": "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/corporate-travel-credit-facility"
+    },
+    {
+      "name": "Mediterranean",
+      "region": "Europe",
+      "description": "Yacht, hotel, transfer and itinerary planning across the region.",
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&h=1200&q=82",
+      "link": "/journal/italy-luxury-travel-guide-2026"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What does Total Stay Tours arrange?",
+      "answer": "We arrange luxury hotels and residences, private jet and helicopter charters, yacht experiences, VIP airport services, chauffeur-driven transfers and personalised concierge services."
+    },
+    {
+      "question": "Do you work with GCC clients?",
+      "answer": "Yes. We specialise in bespoke travel experiences for discerning travellers from the GCC and beyond, with a strong focus on Saudi Arabia, the UAE and Qatar."
+    },
+    {
+      "question": "Can you arrange hotels in London and Europe?",
+      "answer": "Yes. We work with leading hotels and luxury serviced residences in London and across Europe, with exclusive or preferred rates and added benefits subject to availability. Whether you are travelling with family, planning a business trip or looking for a luxurious long stay in London, our team can recommend and arrange the right property based on your preferences and requirements."
+    },
+    {
+      "question": "Can you source a private jet or helicopter?",
+      "answer": "Yes. Through trusted aviation partners, we source suitable aircraft based on destination, schedule, passenger count and specific journey requirements. Whether you require a private jet for a European getaway, a helicopter transfer between destinations, or a fully customised multi-leg journey, our team compares suitable options to help secure competitive pricing and the right aircraft for your journey."
+    },
+    {
+      "question": "Can you arrange yacht charters in the South of France?",
+      "answer": "Yes. We arrange yacht charters in Cannes, Monaco, St Tropez and across the Mediterranean, including day charters, multi-day charters, onboard catering and bespoke itineraries. We focus on finding the right yacht at a competitive rate, while maintaining high standards of quality, comfort and service."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "Email",
+      "value": "info@totalstaytours.co.uk",
+      "href": "mailto:info@totalstaytours.co.uk"
+    }
+  ],
+  "route": {
+    "icon": "✈"
+  },
+  "sections": {
+    "services": {
+      "eyebrow": "Services",
+      "title": "VIP Services",
+      "accent": "Seamless VIP Travel Experiences",
+      "body": "Our VIP services are designed for travellers who value comfort, privacy and seamless coordination from the moment they arrive.",
+      "details": [
+        "From airport assistance and luxury transfers to bespoke arrangements, our team coordinates every detail to ensure a smooth and personalised experience."
+      ],
+      "listTitle": "Our VIP Services",
+      "highlights": [
+        "VIP Airport Services",
+        "Meet & Assist",
+        "Luxury Chauffeur Transfers",
+        "Airport Transfers",
+        "Private Car Services",
+        "Bespoke Travel Arrangements"
+      ],
+      "closing": [
+        "Personalised Service",
+        "Every arrangement can be tailored around your schedule, preferences and requirements, with a focus on comfort, efficiency and discretion"
+      ]
+    },
+    "payments": {
+      "eyebrow": "Why Total Stay Tours",
+      "title": "One company. One point of contact."
+    },
+    "destinations": {
+      "eyebrow": "Signature Destinations",
+      "title": "Where our clients",
+      "accent": "travel in style.",
+      "previousLabel": "Previous destinations",
+      "nextLabel": "Next destinations"
+    },
+    "corporate": {
+      "eyebrow": "About Us هنغير الاسم",
+      "title": "We understand that luxury travel is personal.",
+      "lead": "Since 2014, we have built a trusted network of hotels, aviation companies, yacht operators, chauffeurs and luxury service providers, allowing us to coordinate every element of a journey through one trusted point of contact.",
+      "body": "We take the time to understand each client's preferences and requirements, creating seamless, tailor-made experiences designed around their lifestyle. Whether you are planning a family holiday in London, a private jet journey across Europe, a yacht charter in the South of France, or a complete luxury itinerary, Total Stay Tours is here to take care of every detail.",
+      "creditTitle": "Our promise.",
+      "creditBody": "Competitive rates, luxury accommodation, exceptional aircraft, luxury yachts and unforgettable experiences, carefully selected around you.",
+      "backgroundImage": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1900&h=1200&q=82",
+      "form": {
+        "department": "info@totalstaytours.co.uk",
+        "service": "Request A Quote",
+        "submitLabel": "Request A Quote",
+        "fields": [
+          {
+            "label": "Your Name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": true
+          },
+          {
+            "label": "Service Required",
+            "name": "from",
+            "type": "text",
+            "placeholder": "Hotels, aviation, yachts or full itinerary",
+            "required": true
+          },
+          {
+            "label": "Phone / WhatsApp",
+            "name": "phone",
+            "type": "tel",
+            "autocomplete": "tel",
+            "required": true
+          },
+          {
+            "label": "Destination",
+            "name": "to",
+            "type": "text",
+            "placeholder": "London, Europe, Mediterranean"
+          },
+          {
+            "label": "Travel Dates & Requirements",
+            "name": "details",
+            "type": "text",
+            "placeholder": "Dates, guests, budget, preferences and special requests",
+            "full": true
+          }
+        ]
+      }
+    },
+    "journal": {
+      "eyebrow": "The Journal",
+      "title": "Notes from the",
+      "accent": "front cabin.",
+      "body": "Considered writing on luxury hotels, private aviation, yacht charters and bespoke travel planning.",
+      "ctaLabel": "View All Articles",
+      "ctaLink": "/journal",
+      "articles": [
+        {
+          "slug": "how-to-book-business-class-flights",
+          "category": "Aviation",
+          "readTime": "8 min read",
+          "title": "How to Plan a Private Aviation Journey",
+          "dek": "Aircraft sourcing, route planning and the details that shape a seamless charter.",
+          "excerpt": "Private aviation works best when aircraft, schedule, passenger needs and ground arrangements are planned together.",
+          "image": "/assets/images/plan.jpeg",
+          "alt": "Private jet on runway",
+          "author": "Total Stay Tours Aviation Desk",
+          "updated": "Updated July 2026"
+        },
+        {
+          "slug": "luxury-cruise-guide-2026",
+          "category": "Yachts",
+          "readTime": "10 min read",
+          "title": "Choosing the Right Yacht Charter",
+          "dek": "Day boats, motor yachts and Mediterranean itineraries matched to the occasion.",
+          "excerpt": "The right yacht depends on destination, guest count, onboard requirements, itinerary style and the level of service expected.",
+          "image": "/assets/images/yackth.jpeg",
+          "alt": "Luxury yacht at sea",
+          "author": "Total Stay Tours Yacht Desk",
+          "updated": "Updated July 2026"
+        },
+        {
+          "slug": "private-villas-exclusive-use-travel",
+          "category": "Hotels",
+          "readTime": "7 min read",
+          "title": "Luxury Hotels for GCC Travellers",
+          "dek": "How location, room mix, privacy and added benefits shape the right hotel recommendation.",
+          "excerpt": "A well-selected hotel is not only about star rating; it is about comfort, service, location and how the stay supports the trip.",
+          "image": "/assets/images/photo-1542314831-068cd1dbfeeb.jfif",
+          "alt": "Luxury hotel entrance",
+          "author": "Total Stay Tours Hotel Desk",
+          "updated": "Updated July 2026"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Before You Ask",
+      "title": "Questions, answered plainly."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Tell us where.",
+      "accent": "We will handle how.",
+      "body": "Request a quote, message us on WhatsApp, or write to the desk that suits your journey. A specialist will take it from there. From a relaxing day cruising along the French Riviera to a fully customised multi-day Mediterranean itinerary, our team coordinates the yacht, itinerary and additional arrangements around your requirements."
+    },
+    "floating": {
+      "whatsappLabel": "Chat on WhatsApp",
+      "callLabel": "Call Total Stay Tours"
+    }
+  }
+}

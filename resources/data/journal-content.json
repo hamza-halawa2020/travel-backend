@@ -1,0 +1,265 @@
+{
+  "page": {
+    "eyebrow": "The Journal",
+    "title": "Notes from the front cabin.",
+    "body": "Considered writing on how discerning travellers actually book, fly and stay, served from a mock backend layer."
+  },
+  "filters": {
+    "label": "Filter articles by category",
+    "defaultCategoryId": "all",
+    "categories": [
+      {
+        "id": "all",
+        "label": "All Articles",
+        "articles": [
+          {
+            "slug": "maldives-luxury-resorts-guide-2026",
+            "category": "Destinations",
+            "readTime": "14 min read",
+            "title": "Maldives Luxury Resorts in 2026: How to Choose the Right Island",
+            "dek": "Atolls compared, villa categories decoded, seaplane logistics and the deposit strategy for peak weeks.",
+            "excerpt": "The Maldives looks simple from a distance. In practice, one island means one resort, one rhythm and one chance to choose well.",
+            "image": "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Overwater villas stretching across a turquoise Maldives lagoon",
+            "author": "total stay tours Hotel Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "dubai-luxury-travel-guide-2026",
+            "category": "Destinations",
+            "readTime": "13 min read",
+            "title": "Dubai for the Discerning Traveller: The 2026 Luxury Guide",
+            "dek": "Beach versus Downtown, the desert night that transforms the trip, and booking the peak weeks intelligently.",
+            "excerpt": "Dubai works best when beach, city, dining and desert are balanced instead of stacked into a rushed stopover.",
+            "image": "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Dubai skyline at sunset",
+            "author": "total stay tours Destination Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "italy-luxury-travel-guide-2026",
+            "category": "Destinations",
+            "readTime": "14 min read",
+            "title": "Italy in 2026: An Olympic Year Guide to Travelling Well",
+            "dek": "Puglia, Sicily, the Dolomites and private tour strategy for Italy's busiest luxury year.",
+            "excerpt": "Italy rewards travellers who choose fewer places, better guides and the right season over a checklist route.",
+            "image": "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Italian coastal village",
+            "author": "total stay tours Europe Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "private-villas-exclusive-use-travel",
+            "category": "Trends",
+            "readTime": "13 min read",
+            "title": "The Rise of Exclusive-Use Travel: Private Villas, Islands and Buyout Hotels",
+            "dek": "Privacy is now the starting requirement of luxury: villas, private islands and full hotel buyouts.",
+            "excerpt": "Exclusive-use travel replaces public luxury with controlled space, staff, timing and privacy.",
+            "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Private luxury villa",
+            "author": "total stay tours Private Client Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "luxury-wellness-retreats-2026",
+            "category": "Trends",
+            "readTime": "13 min read",
+            "title": "Wellness Travel in 2026: Sleep Retreats, Longevity Clinics and the New Rest",
+            "dek": "How to choose between spa retreats, digital detox escapes and longevity-led programmes.",
+            "excerpt": "Wellness travel now ranges from genuine clinical programmes to quiet hotels that simply help people sleep again.",
+            "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Luxury wellness retreat",
+            "author": "total stay tours Wellness Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "antarctica-luxury-expedition-cruises",
+            "category": "Cruises",
+            "readTime": "14 min read",
+            "title": "Antarctica by Luxury Expedition Ship: The Complete 2026-27 Guide",
+            "dek": "Ships, seasons, the Drake question and why the seventh continent books eighteen months ahead.",
+            "excerpt": "Antarctica is a ship decision first: route, suite, expedition team and whether to fly or cross the Drake Passage.",
+            "image": "https://images.unsplash.com/photo-1517783999520-f068d7431a60?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Polar expedition landscape",
+            "author": "total stay tours Cruise Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "how-to-book-business-class-flights",
+            "category": "Flights",
+            "readTime": "8 min read",
+            "title": "The Intelligent Way to Book Business Class in 2026",
+            "dek": "Why the fare online is rarely the only fare available, and how deposits change the arithmetic.",
+            "excerpt": "Premium cabin pricing rewards routing knowledge, timing and access to fares that do not behave like public search results.",
+            "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Business class aircraft cabin",
+            "author": "total stay tours Air Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "luxury-cruise-guide-2026",
+            "category": "Cruises",
+            "readTime": "10 min read",
+            "title": "Choosing a Luxury Cruise Line in 2026: A Considered Guide",
+            "dek": "All-suite ships, expedition yachts and river vessels matched to the traveller, not the brochure.",
+            "excerpt": "Cruise choice is about ship culture, suite category, season and destination style as much as itinerary.",
+            "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Luxury cruise ship",
+            "author": "total stay tours Cruise Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "corporate-travel-credit-facility",
+            "category": "Corporate",
+            "readTime": "7 min read",
+            "title": "Corporate Travel Credit: How Growing Companies Fund the Journey",
+            "dek": "What invoice-settled travel changes for cash flow, speed and control.",
+            "excerpt": "A travel credit facility lets approved companies move quickly without every trip becoming a card-limit conversation.",
+            "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "London city skyline",
+            "author": "total stay tours Corporate Desk",
+            "updated": "Updated July 2026"
+          }
+        ]
+      },
+      {
+        "id": "destinations",
+        "label": "Destinations",
+        "articles": [
+          {
+            "slug": "maldives-luxury-resorts-guide-2026",
+            "category": "Destinations",
+            "readTime": "14 min read",
+            "title": "Maldives Luxury Resorts in 2026: How to Choose the Right Island",
+            "dek": "Atolls compared, villa categories decoded, seaplane logistics and the deposit strategy for peak weeks.",
+            "excerpt": "The Maldives looks simple from a distance. In practice, one island means one resort, one rhythm and one chance to choose well.",
+            "image": "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Overwater villas stretching across a turquoise Maldives lagoon",
+            "author": "total stay tours Hotel Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "dubai-luxury-travel-guide-2026",
+            "category": "Destinations",
+            "readTime": "13 min read",
+            "title": "Dubai for the Discerning Traveller: The 2026 Luxury Guide",
+            "dek": "Beach versus Downtown, the desert night that transforms the trip, and booking the peak weeks intelligently.",
+            "excerpt": "Dubai works best when beach, city, dining and desert are balanced instead of stacked into a rushed stopover.",
+            "image": "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Dubai skyline at sunset",
+            "author": "total stay tours Destination Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "italy-luxury-travel-guide-2026",
+            "category": "Destinations",
+            "readTime": "14 min read",
+            "title": "Italy in 2026: An Olympic Year Guide to Travelling Well",
+            "dek": "Puglia, Sicily, the Dolomites and private tour strategy for Italy's busiest luxury year.",
+            "excerpt": "Italy rewards travellers who choose fewer places, better guides and the right season over a checklist route.",
+            "image": "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Italian coastal village",
+            "author": "total stay tours Europe Desk",
+            "updated": "Updated July 2026"
+          }
+        ]
+      },
+      {
+        "id": "trends",
+        "label": "Trends",
+        "articles": [
+          {
+            "slug": "private-villas-exclusive-use-travel",
+            "category": "Trends",
+            "readTime": "13 min read",
+            "title": "The Rise of Exclusive-Use Travel: Private Villas, Islands and Buyout Hotels",
+            "dek": "Privacy is now the starting requirement of luxury: villas, private islands and full hotel buyouts.",
+            "excerpt": "Exclusive-use travel replaces public luxury with controlled space, staff, timing and privacy.",
+            "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Private luxury villa",
+            "author": "total stay tours Private Client Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "luxury-wellness-retreats-2026",
+            "category": "Trends",
+            "readTime": "13 min read",
+            "title": "Wellness Travel in 2026: Sleep Retreats, Longevity Clinics and the New Rest",
+            "dek": "How to choose between spa retreats, digital detox escapes and longevity-led programmes.",
+            "excerpt": "Wellness travel now ranges from genuine clinical programmes to quiet hotels that simply help people sleep again.",
+            "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Luxury wellness retreat",
+            "author": "total stay tours Wellness Desk",
+            "updated": "Updated July 2026"
+          }
+        ]
+      },
+      {
+        "id": "cruises",
+        "label": "Cruises",
+        "articles": [
+          {
+            "slug": "antarctica-luxury-expedition-cruises",
+            "category": "Cruises",
+            "readTime": "14 min read",
+            "title": "Antarctica by Luxury Expedition Ship: The Complete 2026-27 Guide",
+            "dek": "Ships, seasons, the Drake question and why the seventh continent books eighteen months ahead.",
+            "excerpt": "Antarctica is a ship decision first: route, suite, expedition team and whether to fly or cross the Drake Passage.",
+            "image": "https://images.unsplash.com/photo-1517783999520-f068d7431a60?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Polar expedition landscape",
+            "author": "total stay tours Cruise Desk",
+            "updated": "Updated July 2026"
+          },
+          {
+            "slug": "luxury-cruise-guide-2026",
+            "category": "Cruises",
+            "readTime": "10 min read",
+            "title": "Choosing a Luxury Cruise Line in 2026: A Considered Guide",
+            "dek": "All-suite ships, expedition yachts and river vessels matched to the traveller, not the brochure.",
+            "excerpt": "Cruise choice is about ship culture, suite category, season and destination style as much as itinerary.",
+            "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Luxury cruise ship",
+            "author": "total stay tours Cruise Desk",
+            "updated": "Updated July 2026"
+          }
+        ]
+      },
+      {
+        "id": "flights",
+        "label": "Flights",
+        "articles": [
+          {
+            "slug": "how-to-book-business-class-flights",
+            "category": "Flights",
+            "readTime": "8 min read",
+            "title": "The Intelligent Way to Book Business Class in 2026",
+            "dek": "Why the fare online is rarely the only fare available, and how deposits change the arithmetic.",
+            "excerpt": "Premium cabin pricing rewards routing knowledge, timing and access to fares that do not behave like public search results.",
+            "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "Business class aircraft cabin",
+            "author": "total stay tours Air Desk",
+            "updated": "Updated July 2026"
+          }
+        ]
+      },
+      {
+        "id": "corporate",
+        "label": "Corporate",
+        "articles": [
+          {
+            "slug": "corporate-travel-credit-facility",
+            "category": "Corporate",
+            "readTime": "7 min read",
+            "title": "Corporate Travel Credit: How Growing Companies Fund the Journey",
+            "dek": "What invoice-settled travel changes for cash flow, speed and control.",
+            "excerpt": "A travel credit facility lets approved companies move quickly without every trip becoming a card-limit conversation.",
+            "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1300&h=900&q=82",
+            "alt": "London city skyline",
+            "author": "total stay tours Corporate Desk",
+            "updated": "Updated July 2026"
+          }
+        ]
+      }
+    ]
+  }
+}

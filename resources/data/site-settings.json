@@ -1,0 +1,96 @@
+{
+  "brand": {
+    "name": "totalstaytours",
+    "displayName": "Total Stay Tours",
+    "monogram": "TST",
+    "tagline": "Luxury Travel Company",
+    "ariaLabel": "Total Stay Tours luxury travel"
+  },
+  "contact": {
+    "phone": "+44 7425306013",
+    "phoneHref": "tel:+447425306013",
+    "whatsappHref": "https://wa.me/447425306013?text=Hello%2C%20I%27d%20like%20to%20request%20a%20quote%20with%20Total%20Stay%20Tours.",
+    "whatsappLabel": "WhatsApp Us",
+    "callLabel": "Call +44 7425306013",
+    "corporateEmail": "corporate@totalstaytours.co.uk"
+  },
+  "navigation": {
+    "ctaLabel": "Request A Quote",
+    "items": [
+      {
+        "label": "Hotels",
+        "routerLink": "/",
+        "fragment": "hotels"
+      },
+      {
+        "label": "Private Aviation",
+        "routerLink": "/",
+        "fragment": "private-aviation"
+      },
+      {
+        "label": "Yacht Charters",
+        "routerLink": "/",
+        "fragment": "yacht-charters"
+      },
+      {
+        "label": "Services",
+        "routerLink": "/",
+        "fragment": "vip-services"
+      },
+      {
+        "label": "About Us",
+        "routerLink": "/",
+        "fragment": "about-us"
+      },
+      {
+        "label": "Contact",
+        "routerLink": "/",
+        "fragment": "contact"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "(c) 2026 Total Stay Tours. All rights reserved.",
+    "links": [
+      {
+        "label": "Hotels",
+        "routerLink": "/",
+        "fragment": "hotels"
+      },
+      {
+        "label": "Private Aviation",
+        "routerLink": "/",
+        "fragment": "private-aviation"
+      },
+      {
+        "label": "Yacht Charters",
+        "routerLink": "/",
+        "fragment": "yacht-charters"
+      },
+      {
+        "label": "Contact",
+        "routerLink": "/",
+        "fragment": "contact"
+      }
+    ]
+  },
+  "journalPage": {
+    "eyebrow": "The Journal",
+    "title": "Notes from the front cabin.",
+    "body": "Considered writing on how discerning travellers actually book, fly and stay."
+  },
+  "articlePage": {
+    "backToAllLabel": "Back to all journal articles",
+    "backToJournalLabel": "Back to the journal",
+    "journalEyebrowSuffix": "The Journal",
+    "startPlanningEyebrow": "Start Planning",
+    "faqTitle": "Questions, answered plainly.",
+    "relatedEyebrow": "Keep Reading",
+    "relatedTitle": "More from the journal.",
+    "readArticleLabel": "Read article",
+    "notFoundEyebrow": "Not found",
+    "notFoundTitle": "That article is not available.",
+    "notFoundBody": "The journal data service did not return a matching article.",
+    "notFoundButton": "Back to journal"
+  }
+}
