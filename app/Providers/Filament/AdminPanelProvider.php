@@ -5,6 +5,10 @@ namespace App\Providers\Filament;
 use App\Filament\Pages\Dashboard;
 use App\Filament\Pages\ManageSettings;
 use App\Filament\Resources\Contacts\ContactResource;
+use App\Filament\Resources\JournalArticleFaqs\JournalArticleFaqResource;
+use App\Filament\Resources\JournalArticles\JournalArticleResource;
+use App\Filament\Resources\JournalArticleSections\JournalArticleSectionResource;
+use App\Filament\Resources\JournalCategories\JournalCategoryResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -37,6 +41,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->resources([
                 ContactResource::class,
+                JournalCategoryResource::class,
+                JournalArticleResource::class,
+                JournalArticleSectionResource::class,
+                JournalArticleFaqResource::class,
             ])
             ->pages([
                 Dashboard::class,
