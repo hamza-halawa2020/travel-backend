@@ -9,6 +9,7 @@ use App\Filament\Resources\JournalArticleFaqs\JournalArticleFaqResource;
 use App\Filament\Resources\JournalArticles\JournalArticleResource;
 use App\Filament\Resources\JournalArticleSections\JournalArticleSectionResource;
 use App\Filament\Resources\JournalCategories\JournalCategoryResource;
+use App\Filament\Resources\JournalSettings\JournalSettingResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -45,6 +46,7 @@ class AdminPanelProvider extends PanelProvider
                 JournalArticleResource::class,
                 JournalArticleSectionResource::class,
                 JournalArticleFaqResource::class,
+                JournalSettingResource::class,
             ])
             ->pages([
                 Dashboard::class,

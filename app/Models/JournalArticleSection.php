@@ -16,7 +16,6 @@ class JournalArticleSection extends Model
         'image_caption',
         'pull_quote',
         'bullets',
-        'sort_order',
     ];
 
     protected function casts(): array

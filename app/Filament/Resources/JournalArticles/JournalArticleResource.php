@@ -40,7 +40,7 @@ class JournalArticleResource extends Resource
                 ->schema([
                     Select::make('journal_category_id')
                         ->label('Category')
-                        ->options(fn () => JournalCategory::query()->orderBy('sort_order')->pluck('label', 'id'))
+                        ->options(fn () => JournalCategory::query()->orderByDesc('id')->pluck('label', 'id'))
                         ->searchable()
                         ->required(),
                     TextInput::make('slug')->required()->unique(ignoreRecord: true),
@@ -52,7 +52,6 @@ class JournalArticleResource extends Resource
                     TextInput::make('alt')->required()->columnSpanFull(),
                     TextInput::make('author')->required(),
                     TextInput::make('updated_label')->label('Updated Label')->required(),
-                    TextInput::make('sort_order')->numeric()->default(0),
                     Toggle::make('is_published')->label('Published')->default(true),
                 ])->columns(2),
             Section::make('CTA')
@@ -83,12 +82,11 @@ class JournalArticleResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->defaultSort('sort_order')
+            ->defaultSort('id', 'desc')
             ->columns([
                 TextColumn::make('title')->searchable()->limit(45),
                 TextColumn::make('category.label')->label('Category')->sortable(),
                 TextColumn::make('slug')->searchable()->toggleable(),
-                TextColumn::make('sort_order')->sortable(),
                 IconColumn::make('is_published')->label('Published')->boolean(),
             ])
             ->recordActions([

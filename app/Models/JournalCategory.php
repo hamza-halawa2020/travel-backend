@@ -10,11 +10,10 @@ class JournalCategory extends Model
     protected $fillable = [
         'slug',
         'label',
-        'sort_order',
     ];
 
     public function articles(): HasMany
     {
-        return $this->hasMany(JournalArticle::class)->orderBy('sort_order');
+        return $this->hasMany(JournalArticle::class)->orderByDesc('id');
     }
 }

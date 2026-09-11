@@ -37,18 +37,17 @@ class JournalSeeder extends Seeder
             ->values();
 
         $categories = [];
-        foreach ($categoryLabels as $index => $label) {
+        foreach ($categoryLabels as $label) {
             $categories[$label] = JournalCategory::query()->updateOrCreate(
                 ['slug' => Str::slug($label)],
                 [
                     'label' => $label,
-                    'sort_order' => $index + 1,
                 ],
             );
         }
 
         $articleModels = [];
-        foreach ($articles as $index => $articleData) {
+        foreach ($articles as $articleData) {
             $category = $categories[$articleData['category']];
             $cta = $articleData['cta'] ?? [];
 
@@ -68,7 +67,6 @@ class JournalSeeder extends Seeder
                     'cta_body' => $cta['body'] ?? null,
                     'cta_label' => $cta['label'] ?? null,
                     'cta_href' => $cta['href'] ?? null,
-                    'sort_order' => $index + 1,
                     'is_published' => true,
                 ],
             );
@@ -85,7 +83,7 @@ class JournalSeeder extends Seeder
                 ->where('journal_article_id', $article->id)
                 ->delete();
 
-            foreach (($articleData['relatedArticles'] ?? []) as $index => $relatedData) {
+            foreach (($articleData['relatedArticles'] ?? []) as $relatedData) {
                 $relatedArticle = $articleModels[$relatedData['slug']] ?? null;
                 if (! $relatedArticle || $relatedArticle->is($article)) {
                     continue;
@@ -97,7 +95,6 @@ class JournalSeeder extends Seeder
                         'related_journal_article_id' => $relatedArticle->id,
                     ],
                     [
-                        'sort_order' => $index + 1,
                         'created_at' => now(),
                         'updated_at' => now(),
                     ],
@@ -110,7 +107,7 @@ class JournalSeeder extends Seeder
     {
         $article->sections()->delete();
 
-        foreach ($sections as $index => $sectionData) {
+        foreach ($sections as $sectionData) {
             $image = $sectionData['image'] ?? [];
 
             JournalArticleSection::query()->create([
@@ -122,7 +119,6 @@ class JournalSeeder extends Seeder
                 'image_caption' => $image['caption'] ?? null,
                 'pull_quote' => $sectionData['pullQuote'] ?? null,
                 'bullets' => $sectionData['bullets'] ?? null,
-                'sort_order' => $index + 1,
             ]);
         }
     }
@@ -131,12 +127,11 @@ class JournalSeeder extends Seeder
     {
         $article->faqs()->delete();
 
-        foreach ($faqs as $index => $faqData) {
+        foreach ($faqs as $faqData) {
             JournalArticleFaq::query()->create([
                 'journal_article_id' => $article->id,
                 'question' => $faqData['question'],
                 'answer' => $faqData['answer'],
-                'sort_order' => $index + 1,
             ]);
         }
     }

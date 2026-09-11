@@ -34,23 +34,21 @@ class JournalArticleFaqResource extends Resource
         return $schema->components([
             Select::make('journal_article_id')
                 ->label('Article')
-                ->options(fn () => JournalArticle::query()->orderBy('sort_order')->pluck('title', 'id'))
+                ->options(fn () => JournalArticle::query()->orderBy('id', 'desc')->pluck('title', 'id'))
                 ->searchable()
                 ->required(),
             TextInput::make('question')->required()->columnSpanFull(),
             Textarea::make('answer')->required()->columnSpanFull(),
-            TextInput::make('sort_order')->numeric()->default(0),
         ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->defaultSort('sort_order')
+            ->defaultSort('id', 'desc')
             ->columns([
                 TextColumn::make('article.title')->label('Article')->searchable()->limit(40),
                 TextColumn::make('question')->searchable()->limit(55),
-                TextColumn::make('sort_order')->sortable(),
             ])
             ->recordActions([
                 EditAction::make(),

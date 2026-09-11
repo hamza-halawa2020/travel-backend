@@ -22,7 +22,6 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('label');
-            $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
         });
 
@@ -42,7 +41,6 @@ return new class extends Migration
             $table->text('cta_body')->nullable();
             $table->string('cta_label')->nullable();
             $table->string('cta_href')->nullable();
-            $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_published')->default(true);
             $table->timestamps();
         });
@@ -57,7 +55,6 @@ return new class extends Migration
             $table->string('image_caption')->nullable();
             $table->text('pull_quote')->nullable();
             $table->json('bullets')->nullable();
-            $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
         });
 
@@ -66,7 +63,6 @@ return new class extends Migration
             $table->foreignId('journal_article_id')->constrained('journal_articles')->cascadeOnDelete();
             $table->string('question');
             $table->text('answer');
-            $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
         });
 
@@ -74,7 +70,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('journal_article_id')->constrained('journal_articles')->cascadeOnDelete();
             $table->foreignId('related_journal_article_id')->constrained('journal_articles')->cascadeOnDelete();
-            $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
 
             $table->unique(['journal_article_id', 'related_journal_article_id'], 'journal_related_unique');

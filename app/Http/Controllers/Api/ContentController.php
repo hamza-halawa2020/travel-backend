@@ -35,8 +35,8 @@ class ContentController extends Controller
         ]);
 
         $categoryFilters = JournalCategory::query()
-            ->orderBy('sort_order')
-            ->with(['articles' => fn ($query) => $query->where('is_published', true)->orderBy('sort_order')])
+            ->orderByDesc('id')
+            ->with(['articles' => fn ($query) => $query->where('is_published', true)->orderByDesc('id')])
             ->get()
             ->map(fn (JournalCategory $category): array => [
                 'id' => $category->slug,
@@ -87,6 +87,6 @@ class ContentController extends Controller
         return JournalArticle::query()
             ->where('is_published', true)
             ->with('category')
-            ->orderBy('sort_order');
+            ->orderByDesc('id');
     }
 }

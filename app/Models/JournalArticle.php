@@ -24,7 +24,6 @@ class JournalArticle extends Model
         'cta_body',
         'cta_label',
         'cta_href',
-        'sort_order',
         'is_published',
     ];
 
@@ -42,12 +41,12 @@ class JournalArticle extends Model
 
     public function sections(): HasMany
     {
-        return $this->hasMany(JournalArticleSection::class)->orderBy('sort_order');
+        return $this->hasMany(JournalArticleSection::class)->orderByDesc('id');
     }
 
     public function faqs(): HasMany
     {
-        return $this->hasMany(JournalArticleFaq::class)->orderBy('sort_order');
+        return $this->hasMany(JournalArticleFaq::class)->orderByDesc('id');
     }
 
     public function relatedArticles(): BelongsToMany
@@ -57,7 +56,7 @@ class JournalArticle extends Model
             'journal_article_related',
             'journal_article_id',
             'related_journal_article_id',
-        )->withPivot('sort_order')->orderByPivot('sort_order');
+        )->orderByDesc('journal_article_related.id');
     }
 
     public function summaryPayload(): array

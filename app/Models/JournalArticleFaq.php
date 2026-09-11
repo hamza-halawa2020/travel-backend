@@ -11,7 +11,6 @@ class JournalArticleFaq extends Model
         'journal_article_id',
         'question',
         'answer',
-        'sort_order',
     ];
 
     public function article(): BelongsTo

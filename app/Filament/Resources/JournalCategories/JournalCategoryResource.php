@@ -31,18 +31,16 @@ class JournalCategoryResource extends Resource
         return $schema->components([
             TextInput::make('label')->required()->maxLength(255),
             TextInput::make('slug')->required()->maxLength(255)->unique(ignoreRecord: true),
-            TextInput::make('sort_order')->numeric()->default(0),
         ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->defaultSort('sort_order')
+            ->defaultSort('id', 'desc')
             ->columns([
                 TextColumn::make('label')->searchable(),
                 TextColumn::make('slug')->searchable(),
-                TextColumn::make('sort_order')->sortable(),
             ])
             ->recordActions([
                 EditAction::make(),

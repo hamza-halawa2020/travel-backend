@@ -38,7 +38,7 @@ class JournalArticleSectionResource extends Resource
                 ->schema([
                     Select::make('journal_article_id')
                         ->label('Article')
-                        ->options(fn () => JournalArticle::query()->orderBy('sort_order')->pluck('title', 'id'))
+                        ->options(fn () => JournalArticle::query()->orderBy('id', 'desc')->pluck('title', 'id'))
                         ->searchable()
                         ->required(),
                     TextInput::make('heading')->required(),
@@ -49,7 +49,6 @@ class JournalArticleSectionResource extends Resource
                         ->columnSpanFull(),
                     Textarea::make('pull_quote')->label('Pull Quote')->columnSpanFull(),
                     TagsInput::make('bullets')->columnSpanFull(),
-                    TextInput::make('sort_order')->numeric()->default(0),
                 ])->columns(2),
             Section::make('Optional Image')
                 ->schema([
@@ -63,11 +62,10 @@ class JournalArticleSectionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->defaultSort('sort_order')
+            ->defaultSort('id', 'desc')
             ->columns([
                 TextColumn::make('article.title')->label('Article')->searchable()->limit(40),
                 TextColumn::make('heading')->searchable()->limit(45),
-                TextColumn::make('sort_order')->sortable(),
             ])
             ->recordActions([
                 EditAction::make(),
