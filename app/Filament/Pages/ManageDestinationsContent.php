@@ -32,7 +32,7 @@ class ManageDestinationsContent extends Page
 
     public function mount(): void
     {
-        $payload = ContentBlock::payloadFor('home-content');
+        $payload = ContentBlock::rawPayloadFor('home-content');
 
         $this->form->fill([
             'destinations' => $payload['destinations'] ?? [],
@@ -82,3 +82,4 @@ class ManageDestinationsContent extends Page
         Notification::make()->title('Destinations saved.')->success()->send();
     }
 }
+

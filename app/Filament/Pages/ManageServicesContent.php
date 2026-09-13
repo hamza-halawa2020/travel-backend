@@ -34,7 +34,7 @@ class ManageServicesContent extends Page
 
     public function mount(): void
     {
-        $payload = ContentBlock::payloadFor('home-content');
+        $payload = ContentBlock::rawPayloadFor('home-content');
 
         $this->form->fill([
             'services' => $payload['services'] ?? [],
@@ -102,3 +102,4 @@ class ManageServicesContent extends Page
         Notification::make()->title('Services saved.')->success()->send();
     }
 }
+

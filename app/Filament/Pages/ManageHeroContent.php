@@ -33,16 +33,16 @@ class ManageHeroContent extends Page
 
     public function mount(): void
     {
-        $payload = ContentBlock::payloadFor('home-content');
+        $payload = ContentBlock::rawPayloadFor('home-content');
 
         $this->form->fill([
-            'eyebrow' => $payload['hero']['eyebrow'] ?? '',
-            'title' => $payload['hero']['title'] ?? '',
-            'accent' => $payload['hero']['accent'] ?? '',
-            'description' => $payload['hero']['description'] ?? '',
-            'slides' => $payload['hero']['slides'] ?? [],
+            'eyebrow'      => $payload['hero']['eyebrow'] ?? '',
+            'title'        => $payload['hero']['title'] ?? '',
+            'accent'       => $payload['hero']['accent'] ?? '',
+            'description'  => $payload['hero']['description'] ?? '',
+            'slides'       => $payload['hero']['slides'] ?? [],
             'primaryLabel' => $payload['hero']['actions']['primaryLabel'] ?? '',
-            'primaryHref' => $payload['hero']['actions']['primaryHref'] ?? '',
+            'primaryHref'  => $payload['hero']['actions']['primaryHref'] ?? '',
         ]);
     }
 
