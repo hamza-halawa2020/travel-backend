@@ -189,7 +189,8 @@ class ManageSiteSettings extends Page
                                 TextInput::make('fragment')->label('Fragment / Anchor'),
                             ])
                             ->columns(3)
-                            ->addActionLabel('Add Footer Link')
+                            ->addable(false)
+                            ->deletable(false)
                             ->collapsible()
                             ->itemLabel(fn (array $state): ?string => $state['label'] ?? null)
                             ->columnSpanFull(),
@@ -300,3 +301,4 @@ class ManageSiteSettings extends Page
         Notification::make()->title('Site settings saved.')->success()->send();
     }
 }
+
