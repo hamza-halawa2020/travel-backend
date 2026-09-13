@@ -4,7 +4,6 @@ namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
 use BackedEnum;
-use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Notifications\Notification;
@@ -84,8 +83,6 @@ class ManageSectionHeadings extends Page
             'floating_callLabel'      => $s['floating']['callLabel'] ?? '',
             'floating_whatsappLabel'  => $s['floating']['whatsappLabel'] ?? '',
 
-            // Journal articles featured on home page
-            'journal_articles' => $s['journal']['articles'] ?? [],
         ]);
     }
 
@@ -124,25 +121,6 @@ class ManageSectionHeadings extends Page
                         Textarea::make('journal_body')->label('Body')->rows(2)->columnSpanFull(),
                         TextInput::make('journal_ctaLink')->label('CTA Link'),
                         TextInput::make('journal_ctaLabel')->label('CTA Label'),
-                        Repeater::make('journal_articles')
-                            ->label('Featured Articles')
-                            ->schema([
-                                TextInput::make('slug')->label('Slug')->required(),
-                                TextInput::make('title')->label('Title')->required()->columnSpanFull(),
-                                TextInput::make('category')->label('Category'),
-                                TextInput::make('readTime')->label('Read Time'),
-                                TextInput::make('author')->label('Author')->columnSpanFull(),
-                                TextInput::make('image')->label('Image URL')->columnSpanFull(),
-                                TextInput::make('alt')->label('Alt Text')->columnSpanFull(),
-                                Textarea::make('dek')->label('Dek')->rows(2)->columnSpanFull(),
-                                Textarea::make('excerpt')->label('Excerpt')->rows(2)->columnSpanFull(),
-                                TextInput::make('updated')->label('Updated Label'),
-                            ])
-                            ->columns(2)
-                            ->addActionLabel('Add Featured Article')
-                            ->collapsible()
-                            ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
-                            ->columnSpanFull(),
                     ])->columns(2)->collapsible(),
 
                 Section::make('FAQ Section Heading')
@@ -215,7 +193,6 @@ class ManageSectionHeadings extends Page
             'body'     => $data['journal_body'],
             'ctaLink'  => $data['journal_ctaLink'],
             'ctaLabel' => $data['journal_ctaLabel'],
-            'articles' => array_values($data['journal_articles']),
         ]);
 
         $payload['sections']['faq'] = [
@@ -251,3 +228,4 @@ class ManageSectionHeadings extends Page
         Notification::make()->title('Section headings saved.')->success()->send();
     }
 }
+
