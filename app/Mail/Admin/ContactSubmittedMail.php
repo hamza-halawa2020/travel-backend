@@ -2,7 +2,7 @@
 
 namespace App\Mail\Admin;
 
-use App\Models\Contact;
+use App\Models\Enquiry;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -14,13 +14,13 @@ class ContactSubmittedMail extends Mailable
     use Queueable, SerializesModels;
 
     public function __construct(
-        public readonly Contact $contact,
+        public readonly Enquiry $contact,
     ) {}
 
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Contact Form Message - ' . config('app.name'),
+            subject: 'New Enquiry - ' . config('app.name'),
         );
     }
 

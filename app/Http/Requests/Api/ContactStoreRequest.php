@@ -14,12 +14,12 @@ class ContactStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:50',
-            'email' => 'nullable|email|max:255',
+            'name'    => 'required|string|max:255',
+            'phone'   => 'required|string|max:50',
+            'email'   => 'nullable|email|max:255',
             'service' => 'nullable|string|max:255',
-            'from' => 'nullable|string|max:255',
-            'to' => 'nullable|string|max:255',
+            'field_a' => 'nullable|string|max:255',
+            'field_b' => 'nullable|string|max:255',
             'details' => 'nullable|string|max:2000',
         ];
     }

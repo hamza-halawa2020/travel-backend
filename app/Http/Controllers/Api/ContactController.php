@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Enquiry;
 use App\Http\Requests\Api\ContactStoreRequest;
 use App\Mail\Admin\ContactSubmittedMail;
 use App\Support\AdminNotificationRecipients;
@@ -15,13 +15,13 @@ class ContactController extends Controller
 {
     public function __invoke(ContactStoreRequest $request): JsonResponse
     {
-        $payload = Contact::create($request->validated());
+        $payload = Enquiry::create($request->validated());
 
         $resolvedRecipients = AdminNotificationRecipients::resolve('contact');
         $recipients = $resolvedRecipients['recipients'];
         if (! empty($recipients)) {
-            Log::info('admin_notification.contact.preparing', [
-                'contact_id' => $payload->id,
+            Log::info('admin_notification.enquiry.preparing', [
+                'enquiry_id' => $payload->id,
                 'to' => $recipients,
                 'recipient_source' => $resolvedRecipients['source'],
                 'mailer' => config('mail.default'),
@@ -32,13 +32,13 @@ class ContactController extends Controller
             ]);
             try {
                 Mail::to($recipients)->send(new ContactSubmittedMail($payload));
-                Log::info('admin_notification.contact.sent', [
-                    'contact_id' => $payload->id,
+                Log::info('admin_notification.enquiry.sent', [
+                    'enquiry_id' => $payload->id,
                     'to' => $recipients,
                 ]);
             } catch (\Throwable $e) {
-                Log::error('admin_notification.contact.failed', [
-                    'contact_id' => $payload->id,
+                Log::error('admin_notification.enquiry.failed', [
+                    'enquiry_id' => $payload->id,
                     'to' => $recipients,
                     'exception' => get_class($e),
                     'message' => $e->getMessage(),
@@ -55,7 +55,7 @@ class ContactController extends Controller
         }
 
         return response()->json([
-            'message' => 'Contact request received.',
+            'message' => 'Enquiry received.',
             'data' => $payload,
         ], 201);
     }

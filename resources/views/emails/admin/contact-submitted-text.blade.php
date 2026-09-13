@@ -2,17 +2,17 @@ Hello Admin,
 
 You received a new travel enquiry from {{ config('app.name') }}.
 
-CONTACT DETAILS
+ENQUIRY DETAILS
 ---------------
-Sender Name: {{ $contact->name }}
+Name: {{ $contact->name }}
 Phone / WhatsApp: {{ $contact->phone }}
 Email: {{ $contact->email ?? '-' }}
 Service: {{ $contact->service ?? '-' }}
-From / Pickup: {{ $contact->from ?? '-' }}
-To / Destination: {{ $contact->to ?? '-' }}
+Field A: {{ $contact->field_a ?? '-' }}
+Field B: {{ $contact->field_b ?? '-' }}
 Submitted At: {{ $contact->created_at?->toDateTimeString() }}
 
-Travel Details:
+Details:
 {{ $contact->details ?? '-' }}
 
-Dashboard: {{ url('/admin/contacts') }}
+Dashboard: {{ url('/admin/enquiries') }}

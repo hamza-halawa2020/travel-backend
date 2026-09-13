@@ -28,17 +28,16 @@
                                 <tr><td style="padding:10px 12px; color:#6b7280; border-bottom:1px solid #e2e8f0;">Phone / WhatsApp</td><td style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">{{ $contact->phone }}</td></tr>
                                 <tr><td style="padding:10px 12px; color:#6b7280; border-bottom:1px solid #e2e8f0;">Email</td><td style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">{{ $contact->email ?? '-' }}</td></tr>
                                 <tr><td style="padding:10px 12px; color:#6b7280; border-bottom:1px solid #e2e8f0;">Service</td><td style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">{{ $contact->service ?? '-' }}</td></tr>
-                                <tr><td style="padding:10px 12px; color:#6b7280; border-bottom:1px solid #e2e8f0;">From / Pickup</td><td style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">{{ $contact->from ?? '-' }}</td></tr>
-                                <tr><td style="padding:10px 12px; color:#6b7280; border-bottom:1px solid #e2e8f0;">To / Destination</td><td style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">{{ $contact->to ?? '-' }}</td></tr>
+                                <tr><td style="padding:10px 12px; color:#6b7280; border-bottom:1px solid #e2e8f0;">Field A</td><td style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">{{ $contact->field_a ?? '-' }}</td></tr>
+                                <tr><td style="padding:10px 12px; color:#6b7280; border-bottom:1px solid #e2e8f0;">Field B</td><td style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">{{ $contact->field_b ?? '-' }}</td></tr>
                                 <tr><td style="padding:10px 12px; color:#6b7280;">Submitted At</td><td style="padding:10px 12px;">{{ $contact->created_at?->toDateTimeString() }}</td></tr>
                             </table>
 
                             <p style="margin:0 0 8px; font-size:13px; color:#64748b; letter-spacing:.3px; text-transform:uppercase;">Travel Details</p>
                             <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:14px; white-space:pre-wrap; word-break:break-word; font-size:14px; line-height:1.7;">{{ $contact->details ?? '-' }}</div>
 
-                            <p style="margin:22px 0 0;">
-                                <a href="{{ url('/admin/contacts') }}" style="display:inline-block; background:linear-gradient(135deg, #0f766e, #0284c7); color:#ffffff; text-decoration:none; padding:11px 18px; border-radius:10px; font-size:14px; font-weight:700;">
-                                    Open Contact Messages
+                <a href="{{ url('/admin/enquiries') }}" style="display:inline-block; background:linear-gradient(135deg, #0f766e, #0284c7); color:#ffffff; text-decoration:none; padding:11px 18px; border-radius:10px; font-size:14px; font-weight:700;">
+                                    Open Enquiries
                                 </a>
                             </p>
                         </td>
