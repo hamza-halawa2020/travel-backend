@@ -9,7 +9,7 @@ use App\Filament\Pages\ManageHomeIntroContent;
 use App\Filament\Pages\ManageSectionHeadings;
 use App\Filament\Pages\ManageServicesContent;
 use App\Filament\Pages\ManageSiteSettings;
-use App\Filament\Resources\Contacts\ContactResource;
+use App\Filament\Resources\Enquiries\EnquiryResource;
 use App\Filament\Resources\JournalArticleFaqs\JournalArticleFaqResource;
 use App\Filament\Resources\JournalArticles\JournalArticleResource;
 use App\Filament\Resources\JournalArticleSections\JournalArticleSectionResource;
@@ -46,7 +46,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->resources([
-                ContactResource::class,
+                EnquiryResource::class,
                 JournalCategoryResource::class,
                 JournalArticleResource::class,
                 JournalArticleSectionResource::class,
