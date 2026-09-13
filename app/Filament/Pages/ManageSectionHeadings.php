@@ -70,14 +70,6 @@ class ManageSectionHeadings extends Page
             'contact_accent'  => $s['contact']['accent'] ?? '',
             'contact_body'    => $s['contact']['body'] ?? '',
 
-            // Corporate / About Us section
-            'corporate_eyebrow'      => $s['corporate']['eyebrow'] ?? '',
-            'corporate_title'        => $s['corporate']['title'] ?? '',
-            'corporate_lead'         => $s['corporate']['lead'] ?? '',
-            'corporate_body'         => $s['corporate']['body'] ?? '',
-            'corporate_creditTitle'  => $s['corporate']['creditTitle'] ?? '',
-            'corporate_creditBody'   => $s['corporate']['creditBody'] ?? '',
-            'corporate_backgroundImage' => $s['corporate']['backgroundImage'] ?? '',
 
             // Floating CTA
             'floating_callLabel'      => $s['floating']['callLabel'] ?? '',
@@ -137,16 +129,6 @@ class ManageSectionHeadings extends Page
                         Textarea::make('contact_body')->label('Body')->rows(3)->columnSpanFull(),
                     ])->columns(2)->collapsible(),
 
-                Section::make('About Us / Corporate Section')
-                    ->schema([
-                        TextInput::make('corporate_eyebrow')->label('Eyebrow'),
-                        TextInput::make('corporate_title')->label('Title')->columnSpanFull(),
-                        Textarea::make('corporate_lead')->label('Lead Text')->rows(2)->columnSpanFull(),
-                        Textarea::make('corporate_body')->label('Body')->rows(3)->columnSpanFull(),
-                        TextInput::make('corporate_creditTitle')->label('Credit Title'),
-                        Textarea::make('corporate_creditBody')->label('Credit Body')->rows(2)->columnSpanFull(),
-                        TextInput::make('corporate_backgroundImage')->label('Background Image URL')->columnSpanFull(),
-                    ])->columns(2)->collapsible(),
 
                 Section::make('Floating CTA Buttons')
                     ->schema([
@@ -207,16 +189,6 @@ class ManageSectionHeadings extends Page
             'body'    => $data['contact_body'],
         ];
 
-        $existingCorporate = $payload['sections']['corporate'] ?? [];
-        $payload['sections']['corporate'] = array_merge($existingCorporate, [
-            'eyebrow'         => $data['corporate_eyebrow'],
-            'title'           => $data['corporate_title'],
-            'lead'            => $data['corporate_lead'],
-            'body'            => $data['corporate_body'],
-            'creditTitle'     => $data['corporate_creditTitle'],
-            'creditBody'      => $data['corporate_creditBody'],
-            'backgroundImage' => $data['corporate_backgroundImage'],
-        ]);
 
         $payload['sections']['floating'] = [
             'callLabel'     => $data['floating_callLabel'],
