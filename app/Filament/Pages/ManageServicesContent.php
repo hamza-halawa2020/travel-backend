@@ -79,7 +79,7 @@ class ManageServicesContent extends Page
                                     ])->columns(2),
 
                             ])
-                            ->addActionLabel('Add Service')
+                            ->addable(false)
                             ->collapsible()
                             ->columnSpanFull(),
                     ]),
@@ -101,4 +101,5 @@ class ManageServicesContent extends Page
         Notification::make()->title('Services saved.')->success()->send();
     }
 }
+
 

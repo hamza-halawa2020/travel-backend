@@ -80,7 +80,8 @@ class ManageHomeIntroContent extends Page
                                 TextInput::make('label')->label('Label')->required(),
                             ])
                             ->columns(2)
-                            ->addActionLabel('Add Stat')
+                            ->addable(false)
+                            ->deletable(false)
                             ->collapsible()
                             ->columnSpanFull(),
                     ])->columns(2),
@@ -95,7 +96,8 @@ class ManageHomeIntroContent extends Page
                                 Textarea::make('body')->label('Body')->rows(2)->columnSpanFull(),
                             ])
                             ->columns(2)
-                            ->addActionLabel('Add Item')
+                            ->addable(false)
+                            ->deletable(false)
                             ->collapsible()
                             ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
                             ->columnSpanFull(),
@@ -129,3 +131,7 @@ class ManageHomeIntroContent extends Page
         Notification::make()->title('Intro, Payments & Ticker saved.')->success()->send();
     }
 }
+
+
+
+
