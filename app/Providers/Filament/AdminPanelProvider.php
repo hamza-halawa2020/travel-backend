@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\Dashboard;
 use App\Filament\Pages\ManageDestinationsContent;
 use App\Filament\Pages\ManageFaqsContent;
 use App\Filament\Pages\ManageHeroContent;
@@ -55,7 +54,6 @@ class AdminPanelProvider extends PanelProvider
                 JournalSettingResource::class,
             ])
             ->pages([
-                Dashboard::class,
                 ManageHeroContent::class,
                 ManageServicesContent::class,
                 ManageDestinationsContent::class,
