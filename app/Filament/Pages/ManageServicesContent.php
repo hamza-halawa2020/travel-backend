@@ -64,7 +64,6 @@ class ManageServicesContent extends Page
 
                                 Section::make('Details & Highlights')
                                     ->schema([
-                                        TextInput::make('ctaLabel')->label('CTA Button Label'),
                                         TextInput::make('listTitle')->label('List Title'),
                                         TagsInput::make('details')
                                             ->label('Details (paragraphs)')
