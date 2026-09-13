@@ -16,8 +16,8 @@ class JournalSeeder extends Seeder
 {
     public function run(): void
     {
-        $journalContent = ContentBlock::payloadFor('journal-content');
-        $articles = ContentBlock::payloadFor('journal-articles');
+        $journalContent = ContentBlock::rawPayloadFor('journal-content');
+        $articles = ContentBlock::rawPayloadFor('journal-articles');
 
         JournalSetting::query()->updateOrCreate(
             ['id' => 1],

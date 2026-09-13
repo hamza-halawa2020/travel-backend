@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Support\ApiContentCache;
+use App\Support\ResolvesImageUrls;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,6 +13,7 @@ use Illuminate\Support\Str;
 
 class JournalArticle extends Model
 {
+    use ResolvesImageUrls;
     protected $fillable = [
         'journal_category_id',
         'slug',
@@ -135,28 +137,5 @@ class JournalArticle extends Model
             'faqs' => $this->sharedFaqs->map->payload()->values()->all(),
             'relatedArticles' => $this->relatedArticles->map->summaryPayload()->values()->all(),
         ];
-    }
-
-    private function resolveImageUrl(?string $path): ?string
-    {
-        if ($path === null) {
-            return null;
-        }
-
-        // Already an absolute URL (e.g. Unsplash links stored directly)
-        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
-            $storagePath = parse_url($path, PHP_URL_PATH);
-
-            return $storagePath && str_starts_with($storagePath, '/storage/')
-                ? url($storagePath)
-                : $path;
-        }
-
-        // Relative storage path — prefix with app URL
-        if (str_starts_with($path, '/storage/')) {
-            return url($path);
-        }
-
-        return url('/storage/'.ltrim($path, '/'));
     }
 }

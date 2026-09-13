@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use App\Support\ApiContentCache;
+use App\Support\ResolvesImageUrls;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class JournalArticleSection extends Model
 {
+    use ResolvesImageUrls;
     protected static function booted(): void
     {
         static::saved(fn () => ApiContentCache::bumpJournal());
@@ -64,24 +66,4 @@ class JournalArticleSection extends Model
         return $payload;
     }
 
-    private function resolveImageUrl(?string $path): ?string
-    {
-        if ($path === null) {
-            return null;
-        }
-
-        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
-            $storagePath = parse_url($path, PHP_URL_PATH);
-
-            return $storagePath && str_starts_with($storagePath, '/storage/')
-                ? url($storagePath)
-                : $path;
-        }
-
-        if (str_starts_with($path, '/storage/')) {
-            return url($path);
-        }
-
-        return url('/storage/'.ltrim($path, '/'));
-    }
 }
