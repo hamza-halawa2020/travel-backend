@@ -61,7 +61,6 @@ class ManageSiteSettings extends Page
             'contact_phone'          => $payload['contact']['phone'] ?? '',
             'contact_whatsappLabel'  => $payload['contact']['whatsappLabel'] ?? '',
             'contact_callLabel'      => $payload['contact']['callLabel'] ?? '',
-            'contact_corporateEmail' => $payload['contact']['corporateEmail'] ?? '',
 
             // Navigation
             'nav_ctaLabel' => $payload['navigation']['ctaLabel'] ?? '',
@@ -158,7 +157,6 @@ class ManageSiteSettings extends Page
                             ->columnSpanFull(),
                         TextInput::make('contact_whatsappLabel')->label('WhatsApp Button Label'),
                         TextInput::make('contact_callLabel')->label('Call Button Label'),
-                        TextInput::make('contact_corporateEmail')->label('Corporate Email')->columnSpanFull(),
                     ])->columns(2),
 
                 Section::make('Navigation')
@@ -262,7 +260,6 @@ class ManageSiteSettings extends Page
             'whatsappHref'   => 'https://wa.me/' . ltrim(preg_replace('/\s+/', '', $data['contact_phone']), '+'),
             'whatsappLabel'  => $data['contact_whatsappLabel'],
             'callLabel'      => $data['contact_callLabel'],
-            'corporateEmail' => $data['contact_corporateEmail'],
         ];
 
         $payload['navigation'] = [

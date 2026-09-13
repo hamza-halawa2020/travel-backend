@@ -42,7 +42,6 @@ class ManageHeroContent extends Page
             'slides'      => $payload['hero']['slides'] ?? [],
             'primaryLabel'   => $payload['hero']['actions']['primaryLabel'] ?? '',
             'primaryHref'    => $payload['hero']['actions']['primaryHref'] ?? '',
-            'secondaryLabel' => $payload['hero']['actions']['secondaryLabel'] ?? '',
         ]);
     }
 
@@ -99,7 +98,6 @@ class ManageHeroContent extends Page
             'actions'     => [
                 'primaryLabel'   => $data['primaryLabel'],
                 'primaryHref'    => $data['primaryHref'],
-                'secondaryLabel' => $data['secondaryLabel'],
             ],
         ];
 

@@ -35,11 +35,6 @@ class ManageSectionHeadings extends Page
         $s = $payload['sections'] ?? [];
 
         $this->form->fill([
-            // Services section heading
-            'services_eyebrow' => $s['services']['eyebrow'] ?? '',
-            'services_title'   => $s['services']['title'] ?? '',
-            'services_accent'  => $s['services']['accent'] ?? '',
-            'services_body'    => $s['services']['body'] ?? '',
 
             // Payments / Why us
             'payments_eyebrow' => $s['payments']['eyebrow'] ?? '',
@@ -82,13 +77,6 @@ class ManageSectionHeadings extends Page
     {
         return $schema
             ->components([
-                Section::make('Services Section')
-                    ->schema([
-                        TextInput::make('services_eyebrow')->label('Eyebrow'),
-                        TextInput::make('services_title')->label('Title'),
-                        TextInput::make('services_accent')->label('Accent'),
-                        Textarea::make('services_body')->label('Body')->rows(2)->columnSpanFull(),
-                    ])->columns(2)->collapsible(),
 
                 Section::make('Why Choose Us (Payments) Heading')
                     ->schema([
@@ -146,13 +134,8 @@ class ManageSectionHeadings extends Page
         $block = ContentBlock::query()->where('key', 'home-content')->firstOrFail();
 
         $payload = $block->payload;
+        unset($payload['sections']['services']);
 
-        $payload['sections']['services'] = [
-            'eyebrow' => $data['services_eyebrow'],
-            'title'   => $data['services_title'],
-            'accent'  => $data['services_accent'],
-            'body'    => $data['services_body'],
-        ];
 
         $payload['sections']['payments'] = [
             'eyebrow' => $data['payments_eyebrow'],

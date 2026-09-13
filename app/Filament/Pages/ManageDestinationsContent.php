@@ -6,7 +6,6 @@ use App\Models\ContentBlock;
 use BackedEnum;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Section;
@@ -52,7 +51,6 @@ class ManageDestinationsContent extends Page
                                 TextInput::make('region')->label('Region / Country')->required(),
                                 TextInput::make('image')->label('Image URL')->columnSpanFull(),
                                 TextInput::make('link')->label('Link (e.g. /journal/slug)')->columnSpanFull(),
-                                Textarea::make('description')->label('Description')->rows(2)->columnSpanFull(),
                             ])
                             ->columns(2)
                             ->addActionLabel('Add Destination')
@@ -71,7 +69,12 @@ class ManageDestinationsContent extends Page
         $block = ContentBlock::query()->where('key', 'home-content')->firstOrFail();
 
         $payload = $block->payload;
-        $payload['destinations'] = array_values($data['destinations']);
+        $payload['destinations'] = collect($data['destinations'])->map(fn (array $destination): array => [
+            'name' => $destination['name'] ?? '',
+            'region' => $destination['region'] ?? '',
+            'image' => $destination['image'] ?? '',
+            'link' => $destination['link'] ?? '',
+        ])->values()->all();
 
         $block->update(['payload' => $payload]);
 
