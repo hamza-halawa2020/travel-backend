@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\ApiContentCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
@@ -28,6 +29,9 @@ class JournalCategory extends Model
                 $category->slug = static::generateUniqueSlug($category->label, $category->id);
             }
         });
+
+        static::saved(fn () => ApiContentCache::bumpJournal());
+        static::deleted(fn () => ApiContentCache::bumpJournal());
     }
 
     protected static function generateUniqueSlug(string $label, ?int $ignoreId = null): string

@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
+use App\Support\ApiContentCache;
 use Illuminate\Database\Eloquent\Model;
 
 class ContentBlock extends Model
 {
+    protected static function booted(): void
+    {
+        static::saved(fn () => ApiContentCache::bumpContent());
+        static::deleted(fn () => ApiContentCache::bumpContent());
+    }
+
     protected $fillable = [
         'key',
         'payload',

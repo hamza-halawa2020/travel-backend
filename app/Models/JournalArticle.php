@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\ApiContentCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -51,6 +52,9 @@ class JournalArticle extends Model
                 $article->slug = static::generateUniqueSlug($article->title, $article->id);
             }
         });
+
+        static::saved(fn () => ApiContentCache::bumpJournal());
+        static::deleted(fn () => ApiContentCache::bumpJournal());
     }
 
     protected static function generateUniqueSlug(string $title, ?int $ignoreId = null): string

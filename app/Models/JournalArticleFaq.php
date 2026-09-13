@@ -2,12 +2,19 @@
 
 namespace App\Models;
 
+use App\Support\ApiContentCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class JournalArticleFaq extends Model
 {
+    protected static function booted(): void
+    {
+        static::saved(fn () => ApiContentCache::bumpJournal());
+        static::deleted(fn () => ApiContentCache::bumpJournal());
+    }
+
     protected $fillable = [
         'journal_article_id',
         'question',
@@ -39,7 +46,7 @@ class JournalArticleFaq extends Model
     {
         return [
             'question' => $this->question,
-            'answer'   => $this->answer,
+            'answer' => $this->answer,
         ];
     }
 }

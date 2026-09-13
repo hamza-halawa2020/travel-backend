@@ -7,26 +7,74 @@ use App\Models\ContentBlock;
 use App\Models\JournalArticle;
 use App\Models\JournalCategory;
 use App\Models\JournalSetting;
+use App\Support\ApiContentCache;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Cache;
 
 class ContentController extends Controller
 {
     public function siteSettings(): JsonResponse
     {
-        return response()->json(ContentBlock::payloadFor('site-settings'));
+        return response()->json(
+            Cache::rememberForever(
+                ApiContentCache::contentKey('site-settings'),
+                fn () => ContentBlock::payloadFor('site-settings')
+            )
+        );
     }
 
     public function home(): JsonResponse
     {
-        return response()->json(ContentBlock::payloadFor('home-content'));
+        return response()->json(
+            Cache::rememberForever(
+                ApiContentCache::contentKey('home-content'),
+                fn () => ContentBlock::payloadFor('home-content')
+            )
+        );
     }
 
     public function journal(): JsonResponse
     {
-        $settings  = JournalSetting::query()->first();
-        $perPage   = min((int) request()->query('per_page', 6), 24);
-        $page      = max((int) request()->query('page', 1), 1);
-        $category  = request()->query('category', 'all');
+        $perPage = min((int) request()->query('per_page', 6), 24);
+        $page = max((int) request()->query('page', 1), 1);
+        $category = request()->query('category', 'all');
+
+        return response()->json(
+            Cache::rememberForever(
+                ApiContentCache::journalKey("journal-content:{$category}:{$page}:{$perPage}"),
+                fn () => $this->journalPayload($category, $page, $perPage)
+            )
+        );
+    }
+
+    public function articles(): JsonResponse
+    {
+        return response()->json(
+            Cache::rememberForever(
+                ApiContentCache::journalKey('journal-articles:all'),
+                fn () => $this->publishedArticles()
+                    ->with(['sections', 'faqs', 'relatedArticles.category'])
+                    ->get()
+                    ->map->fullPayload()
+                    ->values()
+                    ->all()
+            )
+        );
+    }
+
+    public function article(string $slug): JsonResponse
+    {
+        return response()->json(
+            Cache::rememberForever(
+                ApiContentCache::journalKey("journal-articles:{$slug}"),
+                fn () => $this->articlePayload($slug)
+            )
+        );
+    }
+
+    private function journalPayload(string $category, int $page, int $perPage): array
+    {
+        $settings = JournalSetting::query()->first();
 
         // Build the base query for the requested category
         if ($category === 'all' || empty($category)) {
@@ -38,57 +86,45 @@ class ContentController extends Controller
                 : $this->publishedArticles()->whereRaw('0 = 1');
         }
 
-        $total    = $query->count();
+        $total = $query->count();
         $lastPage = (int) ceil($total / $perPage);
         $articles = $query->forPage($page, $perPage)->get()->map->summaryPayload()->values()->all();
 
         // Category filter tabs (just ids/labels, no articles inside)
         $categoryTabs = collect([[
-            'id'    => 'all',
+            'id' => 'all',
             'label' => 'All Articles',
         ]])->merge(
             JournalCategory::query()->orderByDesc('id')->get()->map(fn (JournalCategory $c) => [
-                'id'    => $c->slug,
+                'id' => $c->slug,
                 'label' => $c->label,
             ])
         )->values()->all();
 
-        return response()->json([
+        return [
             'page' => [
                 'eyebrow' => $settings?->page_eyebrow ?? 'The Journal',
-                'title'   => $settings?->page_title   ?? 'Notes from the front cabin.',
-                'body'    => $settings?->page_body     ?? '',
+                'title' => $settings?->page_title ?? 'Notes from the front cabin.',
+                'body' => $settings?->page_body ?? '',
             ],
             'filters' => [
-                'label'             => $settings?->filter_label         ?? 'Filter articles by category',
+                'label' => $settings?->filter_label ?? 'Filter articles by category',
                 'defaultCategoryId' => $settings?->default_category_slug ?? 'all',
-                'categories'        => $categoryTabs,
+                'categories' => $categoryTabs,
             ],
             'articles' => $articles,
             'pagination' => [
                 'currentPage' => $page,
-                'perPage'     => $perPage,
-                'total'       => $total,
-                'lastPage'    => max($lastPage, 1),
-                'hasNext'     => $page < $lastPage,
-                'hasPrev'     => $page > 1,
+                'perPage' => $perPage,
+                'total' => $total,
+                'lastPage' => max($lastPage, 1),
+                'hasNext' => $page < $lastPage,
+                'hasPrev' => $page > 1,
             ],
-        ]);
+        ];
     }
 
-    public function articles(): JsonResponse
-    {
-        return response()->json(
-            $this->publishedArticles()
-                ->with(['sections', 'faqs', 'relatedArticles.category'])
-                ->get()
-                ->map->fullPayload()
-                ->values()
-                ->all()
-        );
-    }
-
-    public function article(string $slug): JsonResponse
+    private function articlePayload(string $slug): array
     {
         $article = $this->publishedArticles()
             ->with(['sections', 'faqs', 'relatedArticles.category'])
@@ -97,7 +133,7 @@ class ContentController extends Controller
 
         abort_unless($article, 404, 'Article not found.');
 
-        return response()->json($article->fullPayload());
+        return $article->fullPayload();
     }
 
     private function publishedArticles()
