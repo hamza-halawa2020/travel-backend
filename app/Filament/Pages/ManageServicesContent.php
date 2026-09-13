@@ -7,7 +7,6 @@ use BackedEnum;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\TagsInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
@@ -79,28 +78,6 @@ class ManageServicesContent extends Page
                                             ->columnSpanFull(),
                                     ])->columns(2),
 
-                                Section::make('Enquiry Form')
-                                    ->collapsed()
-                                    ->schema([
-                                        TextInput::make('form.department')->label('Department Email'),
-                                        TextInput::make('form.service')->label('Service Label'),
-                                        TextInput::make('form.submitLabel')->label('Submit Button Label'),
-                                        Repeater::make('form.fields')
-                                            ->label('Form Fields')
-                                            ->schema([
-                                                TextInput::make('label')->label('Label')->required(),
-                                                TextInput::make('name')->label('Field Name')->required(),
-                                                TextInput::make('type')->label('Type (text/tel)')->default('text'),
-                                                TextInput::make('placeholder')->label('Placeholder'),
-                                                TextInput::make('autocomplete')->label('Autocomplete'),
-                                                Toggle::make('required')->label('Required')->default(false),
-                                                Toggle::make('full')->label('Full Width')->default(false),
-                                            ])
-                                            ->columns(2)
-                                            ->addActionLabel('Add Field')
-                                            ->collapsible()
-                                            ->columnSpanFull(),
-                                    ])->columns(2),
                             ])
                             ->addActionLabel('Add Service')
                             ->collapsible()
@@ -124,3 +101,4 @@ class ManageServicesContent extends Page
         Notification::make()->title('Services saved.')->success()->send();
     }
 }
+
