@@ -24,6 +24,28 @@ class ContentBlock extends Model
 
         abort_unless($block, 404, "Content block [{$key}] not found.");
 
-        return $block->payload ?? [];
+        return static::resolveStorageUrls($block->payload ?? []);
+    }
+
+    /**
+     * Recursively replace relative /storage/... paths with absolute URLs
+     * so cross-origin frontends can load images correctly.
+     */
+    public static function resolveStorageUrls(mixed $value): mixed
+    {
+        if (is_string($value)) {
+            if (str_starts_with($value, '/storage/')) {
+                return url($value);
+            }
+            return $value;
+        }
+
+        if (is_array($value)) {
+            foreach ($value as $k => $v) {
+                $value[$k] = static::resolveStorageUrls($v);
+            }
+        }
+
+        return $value;
     }
 }

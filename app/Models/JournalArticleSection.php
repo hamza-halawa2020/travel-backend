@@ -40,7 +40,7 @@ class JournalArticleSection extends Model
 
         if ($this->image_src) {
             $payload['image'] = [
-                'src' => $this->image_src,
+                'src' => $this->resolveImageUrl($this->image_src),
                 'alt' => $this->image_alt ?? '',
                 'caption' => $this->image_caption ?? '',
             ];
@@ -55,5 +55,22 @@ class JournalArticleSection extends Model
         }
 
         return $payload;
+    }
+
+    private function resolveImageUrl(?string $path): ?string
+    {
+        if ($path === null) {
+            return null;
+        }
+
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
+        if (str_starts_with($path, '/storage/')) {
+            return url($path);
+        }
+
+        return $path;
     }
 }

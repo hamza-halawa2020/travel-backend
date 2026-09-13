@@ -68,7 +68,7 @@ class JournalArticle extends Model
             'title' => $this->title,
             'dek' => $this->dek,
             'excerpt' => $this->excerpt,
-            'image' => $this->image,
+            'image' => $this->resolveImageUrl($this->image),
             'alt' => $this->alt,
             'author' => $this->author,
             'updated' => $this->updated_label,
@@ -89,5 +89,24 @@ class JournalArticle extends Model
             'faqs' => $this->faqs->map->payload()->values()->all(),
             'relatedArticles' => $this->relatedArticles->map->summaryPayload()->values()->all(),
         ];
+    }
+
+    private function resolveImageUrl(?string $path): ?string
+    {
+        if ($path === null) {
+            return null;
+        }
+
+        // Already an absolute URL (e.g. Unsplash links stored directly)
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
+        // Relative storage path — prefix with app URL
+        if (str_starts_with($path, '/storage/')) {
+            return url($path);
+        }
+
+        return $path;
     }
 }
