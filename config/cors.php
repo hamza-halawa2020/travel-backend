@@ -22,6 +22,8 @@ return [
     'allowed_origins' => [
         'http://localhost:4200',
         'http://localhost:4000',
+        'https://test.totalstaytours.co.uk',
+        'https://totalstaytours.co.uk',
     ],
 
     'allowed_origins_patterns' => [],
