@@ -1,18 +1,15 @@
-Hello Admin,
+New Enquiry — {{ $contact->created_at?->toDateTimeString() }}
 
-You received a new travel enquiry from {{ config('app.name') }}.
-
-ENQUIRY DETAILS
----------------
-Name: {{ $contact->name }}
-Phone / WhatsApp: {{ $contact->phone }}
-Email: {{ $contact->email ?? '-' }}
+Name:    {{ $contact->name }}
+Phone:   {{ $contact->phone }}
 Service: {{ $contact->service ?? '-' }}
-Field A: {{ $contact->field_a ?? '-' }}
-Field B: {{ $contact->field_b ?? '-' }}
-Submitted At: {{ $contact->created_at?->toDateTimeString() }}
+@if($contact->field_a)
+Field A: {{ $contact->field_a }}
+@endif
+@if($contact->details)
 
 Details:
-{{ $contact->details ?? '-' }}
+{{ $contact->details }}
+@endif
 
-Dashboard: {{ url('/admin/enquiries') }}
+{{ url('/admin/enquiries') }}

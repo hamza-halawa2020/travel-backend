@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
                 'mail.mailers.smtp.port'       => $port,
                 'mail.mailers.smtp.username'   => $username,
                 'mail.mailers.smtp.password'   => $password,
-                'mail.mailers.smtp.scheme'     => $encryption === 'ssl' ? 'ssl' : ($encryption === 'tls' ? 'tls' : null),
+                'mail.mailers.smtp.scheme'     => $encryption === 'ssl' ? 'smtps' : 'smtp',
                 'mail.mailers.smtp.transport'  => 'smtp',
                 'mail.default'                 => 'smtp',
                 'mail.from.address'            => $fromAddress ?: $username,
