@@ -41,6 +41,15 @@ class ManageSiteSettings extends Page
             'admin_notification_emails'   => $settings['admin_notification_emails'] ?? '',
             'contact_notification_emails' => $settings['contact_notification_emails'] ?? '',
 
+            // Mail SMTP (from settings table)
+            'mail_host'         => $settings['mail_host'] ?? '',
+            'mail_port'         => $settings['mail_port'] ?? '587',
+            'mail_username'     => $settings['mail_username'] ?? '',
+            'mail_password'     => $settings['mail_password'] ?? '',
+            'mail_encryption'   => $settings['mail_encryption'] ?? 'tls',
+            'mail_from_address' => $settings['mail_from_address'] ?? '',
+            'mail_from_name'    => $settings['mail_from_name'] ?? '',
+
             // Brand
             'brand_name'        => $payload['brand']['name'] ?? '',
             'brand_displayName' => $payload['brand']['displayName'] ?? '',
@@ -102,6 +111,35 @@ class ManageSiteSettings extends Page
                             ->helperText('Receives website contact and travel enquiry notifications.')
                             ->columnSpanFull(),
                     ]),
+
+                Section::make('Mail / SMTP Configuration')
+                    ->icon('heroicon-o-at-symbol')
+                    ->description('Outgoing mail server settings. Leave blank to use the server defaults from .env.')
+                    ->schema([
+                        TextInput::make('mail_host')
+                            ->label('SMTP Host')
+                            ->placeholder('mail.yourdomain.com')
+                            ->columnSpanFull(),
+                        TextInput::make('mail_port')
+                            ->label('SMTP Port')
+                            ->placeholder('587'),
+                        TextInput::make('mail_encryption')
+                            ->label('Encryption (tls / ssl / null)')
+                            ->placeholder('tls'),
+                        TextInput::make('mail_username')
+                            ->label('SMTP Username / Email')
+                            ->placeholder('info@yourdomain.com'),
+                        TextInput::make('mail_password')
+                            ->label('SMTP Password')
+                            ->password()
+                            ->revealable(),
+                        TextInput::make('mail_from_address')
+                            ->label('From Address')
+                            ->placeholder('info@yourdomain.com'),
+                        TextInput::make('mail_from_name')
+                            ->label('From Name')
+                            ->placeholder('Total Stay Tours'),
+                    ])->columns(2)->collapsible(),
 
                 Section::make('Brand')
                     ->schema([
@@ -195,6 +233,19 @@ class ManageSiteSettings extends Page
         // Save notification emails to settings table
         Setting::setValue('admin_notification_emails', $data['admin_notification_emails'] ?? '');
         Setting::setValue('contact_notification_emails', $data['contact_notification_emails'] ?? '');
+
+        // Save mail SMTP settings to settings table
+        Setting::setValue('mail_host',         $data['mail_host'] ?? '');
+        Setting::setValue('mail_port',         $data['mail_port'] ?? '587');
+        Setting::setValue('mail_username',     $data['mail_username'] ?? '');
+        Setting::setValue('mail_encryption',   $data['mail_encryption'] ?? 'tls');
+        Setting::setValue('mail_from_address', $data['mail_from_address'] ?? '');
+        Setting::setValue('mail_from_name',    $data['mail_from_name'] ?? '');
+
+        // Only update password if a new one was entered
+        if (! empty($data['mail_password'])) {
+            Setting::setValue('mail_password', $data['mail_password']);
+        }
 
         $payload['brand'] = [
             'name'        => $data['brand_name'],
