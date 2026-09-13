@@ -64,13 +64,17 @@ class JournalArticleSection extends Model
         }
 
         if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
-            return $path;
+            $storagePath = parse_url($path, PHP_URL_PATH);
+
+            return $storagePath && str_starts_with($storagePath, '/storage/')
+                ? url($storagePath)
+                : $path;
         }
 
         if (str_starts_with($path, '/storage/')) {
             return url($path);
         }
 
-        return $path;
+        return url('/storage/'.ltrim($path, '/'));
     }
 }

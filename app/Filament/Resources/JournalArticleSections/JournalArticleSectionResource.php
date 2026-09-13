@@ -10,10 +10,11 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -55,7 +56,7 @@ class JournalArticleSectionResource extends Resource
                 ])->columns(2),
             Section::make('Optional Image')
                 ->schema([
-                    TextInput::make('image_src')->label('Image Path')->columnSpanFull(),
+                    FileUpload::make('image_src')->label('Image')->image()->disk('public')->directory('article-sections')->visibility('public')->columnSpanFull(),
                     TextInput::make('image_alt')->label('Alt Text')->columnSpanFull(),
                     TextInput::make('image_caption')->label('Caption')->columnSpanFull(),
                 ]),

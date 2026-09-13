@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class JournalArticle extends Model
@@ -112,13 +113,13 @@ class JournalArticle extends Model
     public function summaryPayload(): array
     {
         return [
-            'slug'     => $this->slug,
+            'slug' => $this->slug,
             'category' => $this->category?->label ?? '',
-            'title'    => $this->title,
-            'dek'      => $this->dek,
-            'excerpt'  => $this->excerpt,
-            'image'    => $this->resolveImageUrl($this->image),
-            'alt'      => $this->alt,
+            'title' => $this->title,
+            'dek' => $this->dek,
+            'excerpt' => $this->excerpt,
+            'image' => $this->resolveImageUrl($this->image),
+            'alt' => $this->alt,
         ];
     }
 
@@ -126,8 +127,8 @@ class JournalArticle extends Model
     {
         return [
             ...$this->summaryPayload(),
-            'sections'       => $this->sections->map->payload()->values()->all(),
-            'faqs'           => $this->sharedFaqs->map->payload()->values()->all(),
+            'sections' => $this->sections->map->payload()->values()->all(),
+            'faqs' => $this->sharedFaqs->map->payload()->values()->all(),
             'relatedArticles' => $this->relatedArticles->map->summaryPayload()->values()->all(),
         ];
     }
@@ -140,7 +141,11 @@ class JournalArticle extends Model
 
         // Already an absolute URL (e.g. Unsplash links stored directly)
         if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
-            return $path;
+            $storagePath = parse_url($path, PHP_URL_PATH);
+
+            return $storagePath && str_starts_with($storagePath, '/storage/')
+                ? url($storagePath)
+                : $path;
         }
 
         // Relative storage path — prefix with app URL
@@ -148,6 +153,6 @@ class JournalArticle extends Model
             return url($path);
         }
 
-        return $path;
+        return url('/storage/'.ltrim($path, '/'));
     }
 }

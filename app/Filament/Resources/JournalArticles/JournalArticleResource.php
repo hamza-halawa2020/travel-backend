@@ -10,11 +10,12 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
@@ -51,7 +52,7 @@ class JournalArticleResource extends Resource
                         ->columnSpanFull(),
                     Textarea::make('dek')->required()->columnSpanFull(),
                     Textarea::make('excerpt')->required()->columnSpanFull(),
-                    TextInput::make('image')->required()->columnSpanFull(),
+                    FileUpload::make('image')->label('Image')->image()->disk('public')->directory('articles')->visibility('public')->required()->columnSpanFull(),
                     TextInput::make('alt')->required()->columnSpanFull(),
                 ])
                 ->columns(2),
@@ -74,7 +75,7 @@ class JournalArticleResource extends Resource
                             TagsInput::make('bullets')
                                 ->label('Bullet Points')
                                 ->columnSpanFull(),
-                            TextInput::make('image_src')->label('Image Path')->columnSpanFull(),
+                            FileUpload::make('image_src')->label('Image')->image()->disk('public')->directory('article-sections')->visibility('public')->columnSpanFull(),
                             TextInput::make('image_alt')->label('Image Alt')->columnSpanFull(),
                             TextInput::make('image_caption')->label('Image Caption')->columnSpanFull(),
                         ])

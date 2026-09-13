@@ -4,9 +4,10 @@ namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Section;
@@ -35,13 +36,13 @@ class ManageHeroContent extends Page
         $payload = ContentBlock::payloadFor('home-content');
 
         $this->form->fill([
-            'eyebrow'     => $payload['hero']['eyebrow'] ?? '',
-            'title'       => $payload['hero']['title'] ?? '',
-            'accent'      => $payload['hero']['accent'] ?? '',
+            'eyebrow' => $payload['hero']['eyebrow'] ?? '',
+            'title' => $payload['hero']['title'] ?? '',
+            'accent' => $payload['hero']['accent'] ?? '',
             'description' => $payload['hero']['description'] ?? '',
-            'slides'      => $payload['hero']['slides'] ?? [],
-            'primaryLabel'   => $payload['hero']['actions']['primaryLabel'] ?? '',
-            'primaryHref'    => $payload['hero']['actions']['primaryHref'] ?? '',
+            'slides' => $payload['hero']['slides'] ?? [],
+            'primaryLabel' => $payload['hero']['actions']['primaryLabel'] ?? '',
+            'primaryHref' => $payload['hero']['actions']['primaryHref'] ?? '',
         ]);
     }
 
@@ -62,7 +63,7 @@ class ManageHeroContent extends Page
                         Repeater::make('slides')
                             ->label('')
                             ->schema([
-                                TextInput::make('image')->label('Image URL')->required()->columnSpanFull(),
+                                FileUpload::make('image')->label('Image')->image()->disk('public')->directory('hero')->visibility('public')->required()->columnSpanFull(),
                                 TextInput::make('alt')->label('Alt Text')->required(),
                                 TextInput::make('link')->label('Link (e.g. /journal/slug)'),
                             ])
@@ -90,14 +91,14 @@ class ManageHeroContent extends Page
         $payload = $block->payload;
 
         $payload['hero'] = [
-            'eyebrow'     => $data['eyebrow'],
-            'title'       => $data['title'],
-            'accent'      => $data['accent'],
+            'eyebrow' => $data['eyebrow'],
+            'title' => $data['title'],
+            'accent' => $data['accent'],
             'description' => $data['description'],
-            'slides'      => $data['slides'],
-            'actions'     => [
-                'primaryLabel'   => $data['primaryLabel'],
-                'primaryHref'    => $data['primaryHref'],
+            'slides' => $data['slides'],
+            'actions' => [
+                'primaryLabel' => $data['primaryLabel'],
+                'primaryHref' => $data['primaryHref'],
             ],
         ];
 

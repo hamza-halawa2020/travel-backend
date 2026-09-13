@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -49,7 +50,7 @@ class ManageDestinationsContent extends Page
                             ->schema([
                                 TextInput::make('name')->label('City / Name')->required(),
                                 TextInput::make('region')->label('Region / Country')->required(),
-                                TextInput::make('image')->label('Image URL')->columnSpanFull(),
+                                FileUpload::make('image')->label('Image')->image()->disk('public')->directory('destinations')->visibility('public')->columnSpanFull(),
                                 TextInput::make('link')->label('Link (e.g. /journal/slug)')->columnSpanFull(),
                             ])
                             ->columns(2)

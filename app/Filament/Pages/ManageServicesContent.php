@@ -4,10 +4,11 @@ namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Section;
@@ -56,7 +57,7 @@ class ManageServicesContent extends Page
                                         TextInput::make('eyebrow')->label('Eyebrow (e.g. No. 01)'),
                                         TextInput::make('title')->label('Title')->required(),
                                         TextInput::make('tag')->label('Tag / Desk Name'),
-                                        TextInput::make('image')->label('Image URL')->columnSpanFull(),
+                                        FileUpload::make('image')->label('Image')->image()->disk('public')->directory('services')->visibility('public')->columnSpanFull(),
                                         TextInput::make('link')->label('Link (e.g. /journal/slug)')->columnSpanFull(),
                                         Textarea::make('summary')->label('Summary')->rows(2)->columnSpanFull(),
                                     ])->columns(2),
@@ -101,5 +102,3 @@ class ManageServicesContent extends Page
         Notification::make()->title('Services saved.')->success()->send();
     }
 }
-
-
