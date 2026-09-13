@@ -39,10 +39,8 @@ class EnquiryResource extends Resource
         return $schema->components([
             TextEntry::make('name')->label('Name'),
             TextEntry::make('phone')->label('Phone / WhatsApp'),
-            TextEntry::make('email')->label('Email')->placeholder('-'),
             TextEntry::make('service')->label('Service')->placeholder('-'),
             TextEntry::make('field_a')->label('Field A')->placeholder('-'),
-            TextEntry::make('field_b')->label('Field B')->placeholder('-'),
             TextEntry::make('details')->label('Details')->columnSpanFull()->placeholder('-'),
             TextEntry::make('created_at')->label('Submitted At')->dateTime()->placeholder('-'),
         ]);
@@ -57,7 +55,6 @@ class EnquiryResource extends Resource
                 TextColumn::make('phone')->label('Phone')->searchable(),
                 TextColumn::make('service')->label('Service')->searchable()->placeholder('-'),
                 TextColumn::make('field_a')->label('Field A')->searchable()->placeholder('-')->toggleable(),
-                TextColumn::make('field_b')->label('Field B')->searchable()->placeholder('-')->toggleable(),
                 TextColumn::make('details')->label('Details')->limit(60)->placeholder('-')->toggleable(),
                 TextColumn::make('created_at')->label('Submitted At')->dateTime()->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

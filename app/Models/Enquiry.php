@@ -14,10 +14,8 @@ class Enquiry extends Model
     protected $fillable = [
         'name',
         'phone',
-        'email',
         'service',
         'field_a',
-        'field_b',
         'details',
     ];
 }
