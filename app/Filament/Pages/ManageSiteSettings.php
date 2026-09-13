@@ -38,7 +38,6 @@ class ManageSiteSettings extends Page
 
         $this->form->fill([
             // Notification Emails (from settings table)
-            'admin_notification_emails'   => $settings['admin_notification_emails'] ?? '',
             'contact_notification_emails' => $settings['contact_notification_emails'] ?? '',
 
             // Mail SMTP (from settings table)
@@ -97,12 +96,6 @@ class ManageSiteSettings extends Page
                 Section::make('Notification Emails')
                     ->icon('heroicon-o-envelope')
                     ->schema([
-                        Textarea::make('admin_notification_emails')
-                            ->label('Fallback Notification Emails')
-                            ->rows(2)
-                            ->placeholder('admin@example.com, admin2@example.com')
-                            ->helperText('Used if contact-specific emails are empty.')
-                            ->columnSpanFull(),
                         Textarea::make('contact_notification_emails')
                             ->label('Travel Enquiry Notification Emails')
                             ->rows(2)
@@ -230,7 +223,6 @@ class ManageSiteSettings extends Page
         $payload = $block->payload;
 
         // Save notification emails to settings table
-        Setting::setValue('admin_notification_emails', $data['admin_notification_emails'] ?? '');
         Setting::setValue('contact_notification_emails', $data['contact_notification_emails'] ?? '');
 
         // Save mail SMTP settings to settings table

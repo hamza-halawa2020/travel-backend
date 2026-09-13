@@ -33,16 +33,7 @@ class AdminNotificationRecipients
     private static function fromSettings(?string $channel = null): array
     {
         try {
-            $key = match ($channel) {
-                'contact' => 'contact_notification_emails',
-                default => 'admin_notification_emails',
-            };
-
-            $raw = (string) Setting::getValue($key, '');
-
-            if ($raw === '' && $key !== 'admin_notification_emails') {
-                $raw = (string) Setting::getValue('admin_notification_emails', '');
-            }
+            $raw = (string) Setting::getValue('contact_notification_emails', '');
         } catch (\Throwable) {
             return [];
         }
