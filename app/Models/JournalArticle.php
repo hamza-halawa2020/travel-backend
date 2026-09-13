@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class JournalArticle extends Model
 {
@@ -32,6 +33,42 @@ class JournalArticle extends Model
         return [
             'is_published' => 'boolean',
         ];
+    }
+
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        static::creating(function (self $article) {
+            if (empty($article->slug)) {
+                $article->slug = static::generateUniqueSlug($article->title);
+            }
+        });
+
+        static::updating(function (self $article) {
+            if ($article->isDirty('title') && ! $article->isDirty('slug')) {
+                $article->slug = static::generateUniqueSlug($article->title, $article->id);
+            }
+        });
+    }
+
+    protected static function generateUniqueSlug(string $title, ?int $ignoreId = null): string
+    {
+        $base = Str::slug($title);
+        $slug = $base;
+        $i = 1;
+
+        while (
+            static::query()
+                ->where('slug', $slug)
+                ->when($ignoreId, fn ($q) => $q->whereKeyNot($ignoreId))
+                ->exists()
+        ) {
+            $slug = "{$base}-{$i}";
+            $i++;
+        }
+
+        return $slug;
     }
 
     public function category(): BelongsTo

@@ -43,9 +43,10 @@ class JournalArticleResource extends Resource
                         ->options(fn () => JournalCategory::query()->orderByDesc('id')->pluck('label', 'id'))
                         ->searchable()
                         ->required(),
-                    TextInput::make('slug')->required()->unique(ignoreRecord: true),
                     TextInput::make('read_time')->label('Read Time')->required(),
-                    TextInput::make('title')->required()->columnSpanFull(),
+                    TextInput::make('title')
+                        ->required()
+                        ->columnSpanFull(),
                     Textarea::make('dek')->required()->columnSpanFull(),
                     Textarea::make('excerpt')->required()->columnSpanFull(),
                     TextInput::make('image')->required()->columnSpanFull(),
@@ -86,7 +87,6 @@ class JournalArticleResource extends Resource
             ->columns([
                 TextColumn::make('title')->searchable()->limit(45),
                 TextColumn::make('category.label')->label('Category')->sortable(),
-                TextColumn::make('slug')->searchable()->toggleable(),
                 IconColumn::make('is_published')->label('Published')->boolean(),
             ])
             ->recordActions([

@@ -30,7 +30,6 @@ class JournalCategoryResource extends Resource
     {
         return $schema->components([
             TextInput::make('label')->required()->maxLength(255),
-            TextInput::make('slug')->required()->maxLength(255)->unique(ignoreRecord: true),
         ]);
     }
 
@@ -40,7 +39,6 @@ class JournalCategoryResource extends Resource
             ->defaultSort('id', 'desc')
             ->columns([
                 TextColumn::make('label')->searchable(),
-                TextColumn::make('slug')->searchable(),
             ])
             ->recordActions([
                 EditAction::make(),
