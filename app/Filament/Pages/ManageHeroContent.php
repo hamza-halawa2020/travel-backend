@@ -64,8 +64,6 @@ class ManageHeroContent extends Page
                             ->label('')
                             ->schema([
                                 FileUpload::make('image')->label('Image')->image()->disk('public')->directory('hero')->visibility('public')->required()->columnSpanFull(),
-                                TextInput::make('alt')->label('Alt Text')->required(),
-                                TextInput::make('link')->label('Link (e.g. /journal/slug)'),
                             ])
                             ->columns(2)
                             ->addActionLabel('Add Slide')
