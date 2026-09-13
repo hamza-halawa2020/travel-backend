@@ -3,7 +3,13 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
-use App\Filament\Pages\ManageSettings;
+use App\Filament\Pages\ManageDestinationsContent;
+use App\Filament\Pages\ManageFaqsContent;
+use App\Filament\Pages\ManageHeroContent;
+use App\Filament\Pages\ManageHomeIntroContent;
+use App\Filament\Pages\ManageSectionHeadings;
+use App\Filament\Pages\ManageServicesContent;
+use App\Filament\Pages\ManageSiteSettings;
 use App\Filament\Resources\Contacts\ContactResource;
 use App\Filament\Resources\JournalArticleFaqs\JournalArticleFaqResource;
 use App\Filament\Resources\JournalArticles\JournalArticleResource;
@@ -50,7 +56,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->pages([
                 Dashboard::class,
-                ManageSettings::class,
+                ManageHeroContent::class,
+                ManageServicesContent::class,
+                ManageDestinationsContent::class,
+                ManageFaqsContent::class,
+                ManageHomeIntroContent::class,
+                ManageSectionHeadings::class,
+                ManageSiteSettings::class,
             ])
             ->widgets([
                 // AccountWidget::class,
