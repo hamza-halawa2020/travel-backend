@@ -77,8 +77,7 @@ class ManageHeroContent extends Page
                     ->schema([
                         TextInput::make('primaryLabel')->label('Primary Button Label'),
                         TextInput::make('primaryHref')->label('Primary Button Link'),
-                        TextInput::make('secondaryLabel')->label('Secondary Button Label'),
-                    ])->columns(3),
+                    ])->columns(2),
             ])
             ->statePath('data');
     }

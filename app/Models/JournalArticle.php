@@ -86,6 +86,19 @@ class JournalArticle extends Model
         return $this->hasMany(JournalArticleFaq::class)->orderByDesc('id');
     }
 
+    /**
+     * FAQs linked via the many-to-many pivot (new source of truth).
+     */
+    public function sharedFaqs(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            JournalArticleFaq::class,
+            'journal_article_faq_pivot',
+            'journal_article_id',
+            'journal_article_faq_id',
+        );
+    }
+
     public function relatedArticles(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -99,16 +112,13 @@ class JournalArticle extends Model
     public function summaryPayload(): array
     {
         return [
-            'slug' => $this->slug,
+            'slug'     => $this->slug,
             'category' => $this->category?->label ?? '',
-            'readTime' => $this->read_time,
-            'title' => $this->title,
-            'dek' => $this->dek,
-            'excerpt' => $this->excerpt,
-            'image' => $this->resolveImageUrl($this->image),
-            'alt' => $this->alt,
-            'author' => $this->author,
-            'updated' => $this->updated_label,
+            'title'    => $this->title,
+            'dek'      => $this->dek,
+            'excerpt'  => $this->excerpt,
+            'image'    => $this->resolveImageUrl($this->image),
+            'alt'      => $this->alt,
         ];
     }
 
@@ -116,14 +126,8 @@ class JournalArticle extends Model
     {
         return [
             ...$this->summaryPayload(),
-            'cta' => [
-                'title' => $this->cta_title ?? '',
-                'body' => $this->cta_body ?? '',
-                'label' => $this->cta_label ?? '',
-                'href' => $this->cta_href ?? '',
-            ],
-            'sections' => $this->sections->map->payload()->values()->all(),
-            'faqs' => $this->faqs->map->payload()->values()->all(),
+            'sections'       => $this->sections->map->payload()->values()->all(),
+            'faqs'           => $this->sharedFaqs->map->payload()->values()->all(),
             'relatedArticles' => $this->relatedArticles->map->summaryPayload()->values()->all(),
         ];
     }

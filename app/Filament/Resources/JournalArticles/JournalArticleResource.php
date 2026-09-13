@@ -10,7 +10,9 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -37,13 +39,13 @@ class JournalArticleResource extends Resource
     {
         return $schema->components([
             Section::make('Article')
-                ->schema([
+                ->components([
                     Select::make('journal_category_id')
                         ->label('Category')
                         ->options(fn () => JournalCategory::query()->orderByDesc('id')->pluck('label', 'id'))
                         ->searchable()
                         ->required(),
-                    TextInput::make('read_time')->label('Read Time')->required(),
+                    Toggle::make('is_published')->label('Published')->default(true),
                     TextInput::make('title')
                         ->required()
                         ->columnSpanFull(),
@@ -51,26 +53,64 @@ class JournalArticleResource extends Resource
                     Textarea::make('excerpt')->required()->columnSpanFull(),
                     TextInput::make('image')->required()->columnSpanFull(),
                     TextInput::make('alt')->required()->columnSpanFull(),
-                    TextInput::make('author')->required(),
-                    TextInput::make('updated_label')->label('Updated Label')->required(),
-                    Toggle::make('is_published')->label('Published')->default(true),
-                ])->columns(2),
-            Section::make('CTA')
-                ->schema([
-                    TextInput::make('cta_title')->label('Title')->columnSpanFull(),
-                    Textarea::make('cta_body')->label('Body')->columnSpanFull(),
-                    TextInput::make('cta_label')->label('Button Label'),
-                    TextInput::make('cta_href')->label('Button Link'),
-                ])->columns(2),
+                ])
+                ->columns(2),
+
+            Section::make('Sections')
+                ->description('Content sections that make up the body of this article.')
+                ->components([
+                    Repeater::make('sections')
+                        ->relationship('sections')
+                        ->schema([
+                            TextInput::make('heading')->required()->columnSpanFull(),
+                            TagsInput::make('body')
+                                ->label('Paragraphs')
+                                ->helperText('Press Enter after each paragraph.')
+                                ->required()
+                                ->columnSpanFull(),
+                            Textarea::make('pull_quote')
+                                ->label('Pull Quote')
+                                ->columnSpanFull(),
+                            TagsInput::make('bullets')
+                                ->label('Bullet Points')
+                                ->columnSpanFull(),
+                            TextInput::make('image_src')->label('Image Path')->columnSpanFull(),
+                            TextInput::make('image_alt')->label('Image Alt')->columnSpanFull(),
+                            TextInput::make('image_caption')->label('Image Caption')->columnSpanFull(),
+                        ])
+                        ->columns(2)
+                        ->orderColumn(false)
+                        ->addActionLabel('Add Section')
+                        ->collapsible()
+                        ->cloneable()
+                        ->columnSpanFull(),
+                ]),
+
+            Section::make('FAQs')
+                ->description('Attach existing FAQs — same FAQ can be shared across multiple articles.')
+                ->components([
+                    Select::make('sharedFaqs')
+                        ->label('Attached FAQs')
+                        ->relationship('sharedFaqs', 'question')
+                        ->multiple()
+                        ->preload()
+                        ->searchable()
+                        ->createOptionForm([
+                            TextInput::make('question')->required()->columnSpanFull(),
+                            Textarea::make('answer')->required()->columnSpanFull(),
+                        ])
+                        ->columnSpanFull(),
+                ]),
+
             Section::make('Related Articles')
-                ->schema([
+                ->components([
                     Select::make('relatedArticles')
                         ->relationship(
                             'relatedArticles',
                             'title',
-                            modifyQueryUsing: fn (Builder $query, ?JournalArticle $record) => $record
-                                ? $query->whereKeyNot($record->id)
-                                : $query,
+                            modifyQueryUsing: function (Builder $query, ?JournalArticle $record) {
+                                return $record ? $query->whereKeyNot($record->id) : $query;
+                            },
                         )
                         ->multiple()
                         ->preload()

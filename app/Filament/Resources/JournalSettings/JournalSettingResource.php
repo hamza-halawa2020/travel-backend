@@ -31,7 +31,6 @@ class JournalSettingResource extends Resource
             TextInput::make('page_title')->required()->columnSpanFull(),
             Textarea::make('page_body')->required()->columnSpanFull(),
             TextInput::make('filter_label')->required(),
-            TextInput::make('default_category_slug')->required(),
         ]);
     }
 
@@ -41,7 +40,6 @@ class JournalSettingResource extends Resource
             ->columns([
                 TextColumn::make('page_eyebrow'),
                 TextColumn::make('page_title')->limit(50),
-                TextColumn::make('default_category_slug'),
             ])
             ->recordActions([
                 EditAction::make(),

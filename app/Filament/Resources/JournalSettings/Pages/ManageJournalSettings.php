@@ -13,7 +13,7 @@ class ManageJournalSettings extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            // CreateAction removed — only one settings row should ever exist.
         ];
     }
 }

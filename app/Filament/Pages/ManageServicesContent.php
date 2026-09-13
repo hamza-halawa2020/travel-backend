@@ -60,7 +60,6 @@ class ManageServicesContent extends Page
                                         TextInput::make('image')->label('Image URL')->columnSpanFull(),
                                         TextInput::make('link')->label('Link (e.g. /journal/slug)')->columnSpanFull(),
                                         Textarea::make('summary')->label('Summary')->rows(2)->columnSpanFull(),
-                                        Toggle::make('reversed')->label('Reversed Layout')->default(false),
                                     ])->columns(2),
 
                                 Section::make('Details & Highlights')

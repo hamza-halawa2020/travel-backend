@@ -23,37 +23,55 @@ class ContentController extends Controller
 
     public function journal(): JsonResponse
     {
-        $settings = JournalSetting::query()->first();
-        $articles = $this->publishedArticles()->get();
+        $settings  = JournalSetting::query()->first();
+        $perPage   = min((int) request()->query('per_page', 6), 24);
+        $page      = max((int) request()->query('page', 1), 1);
+        $category  = request()->query('category', 'all');
 
-        $categories = collect([
-            [
-                'id' => 'all',
-                'label' => 'All Articles',
-                'articles' => $articles->map->summaryPayload()->values()->all(),
-            ],
-        ]);
+        // Build the base query for the requested category
+        if ($category === 'all' || empty($category)) {
+            $query = $this->publishedArticles();
+        } else {
+            $cat = JournalCategory::where('slug', $category)->first();
+            $query = $cat
+                ? $this->publishedArticles()->where('journal_category_id', $cat->id)
+                : $this->publishedArticles()->whereRaw('0 = 1');
+        }
 
-        $categoryFilters = JournalCategory::query()
-            ->orderByDesc('id')
-            ->with(['articles' => fn ($query) => $query->where('is_published', true)->orderByDesc('id')])
-            ->get()
-            ->map(fn (JournalCategory $category): array => [
-                'id' => $category->slug,
-                'label' => $category->label,
-                'articles' => $category->articles->map->summaryPayload()->values()->all(),
-            ]);
+        $total    = $query->count();
+        $lastPage = (int) ceil($total / $perPage);
+        $articles = $query->forPage($page, $perPage)->get()->map->summaryPayload()->values()->all();
+
+        // Category filter tabs (just ids/labels, no articles inside)
+        $categoryTabs = collect([[
+            'id'    => 'all',
+            'label' => 'All Articles',
+        ]])->merge(
+            JournalCategory::query()->orderByDesc('id')->get()->map(fn (JournalCategory $c) => [
+                'id'    => $c->slug,
+                'label' => $c->label,
+            ])
+        )->values()->all();
 
         return response()->json([
             'page' => [
                 'eyebrow' => $settings?->page_eyebrow ?? 'The Journal',
-                'title' => $settings?->page_title ?? 'Notes from the front cabin.',
-                'body' => $settings?->page_body ?? '',
+                'title'   => $settings?->page_title   ?? 'Notes from the front cabin.',
+                'body'    => $settings?->page_body     ?? '',
             ],
             'filters' => [
-                'label' => $settings?->filter_label ?? 'Filter articles by category',
+                'label'             => $settings?->filter_label         ?? 'Filter articles by category',
                 'defaultCategoryId' => $settings?->default_category_slug ?? 'all',
-                'categories' => $categories->merge($categoryFilters)->values()->all(),
+                'categories'        => $categoryTabs,
+            ],
+            'articles' => $articles,
+            'pagination' => [
+                'currentPage' => $page,
+                'perPage'     => $perPage,
+                'total'       => $total,
+                'lastPage'    => max($lastPage, 1),
+                'hasNext'     => $page < $lastPage,
+                'hasPrev'     => $page > 1,
             ],
         ]);
     }

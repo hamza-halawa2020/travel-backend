@@ -29,6 +29,9 @@ class JournalArticleSectionResource extends Resource
 
     protected static ?string $navigationLabel = 'Article Sections';
 
+    // Hidden from the sidebar — managed via the Article form.
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?string $recordTitleAttribute = 'heading';
 
     public static function form(Schema $schema): Schema

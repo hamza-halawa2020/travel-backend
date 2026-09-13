@@ -3,14 +3,12 @@
 namespace App\Filament\Resources\JournalArticleFaqs;
 
 use App\Filament\Resources\JournalArticleFaqs\Pages\ManageJournalArticleFaqs;
-use App\Models\JournalArticle;
 use App\Models\JournalArticleFaq;
 use BackedEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Resources\Resource;
@@ -29,14 +27,13 @@ class JournalArticleFaqResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'question';
 
+    // Hidden from the sidebar — managed via the Article form.
+    // Access directly at /admin/journal-article-faqs if needed.
+    protected static bool $shouldRegisterNavigation = false;
+
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
-            Select::make('journal_article_id')
-                ->label('Article')
-                ->options(fn () => JournalArticle::query()->orderBy('id', 'desc')->pluck('title', 'id'))
-                ->searchable()
-                ->required(),
             TextInput::make('question')->required()->columnSpanFull(),
             Textarea::make('answer')->required()->columnSpanFull(),
         ]);
@@ -47,8 +44,8 @@ class JournalArticleFaqResource extends Resource
         return $table
             ->defaultSort('id', 'desc')
             ->columns([
-                TextColumn::make('article.title')->label('Article')->searchable()->limit(40),
-                TextColumn::make('question')->searchable()->limit(55),
+                TextColumn::make('question')->searchable()->limit(60),
+                TextColumn::make('answer')->limit(80)->wrap(),
             ])
             ->recordActions([
                 EditAction::make(),
