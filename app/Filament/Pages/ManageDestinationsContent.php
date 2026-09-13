@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
+use App\Support\NormalizesStorageImages;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -16,6 +17,7 @@ use UnitEnum;
 
 class ManageDestinationsContent extends Page
 {
+    use NormalizesStorageImages;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMapPin;
 
     protected string $view = 'filament.pages.manage-content';
@@ -35,7 +37,7 @@ class ManageDestinationsContent extends Page
         $payload = ContentBlock::rawPayloadFor('home-content');
 
         $this->form->fill([
-            'destinations' => $payload['destinations'] ?? [],
+            'destinations' => $this->normalizeImagesInCollection($payload['destinations'] ?? []),
         ]);
     }
 
@@ -50,7 +52,7 @@ class ManageDestinationsContent extends Page
                             ->schema([
                                 TextInput::make('name')->label('City / Name')->required(),
                                 TextInput::make('region')->label('Region / Country')->required(),
-                                FileUpload::make('image')->label('Image')->image()->disk('public')->directory('destinations')->visibility('public')->columnSpanFull(),
+                                FileUpload::make('image')->label('Image')->image()->disk('public')->visibility('public')->columnSpanFull(),
                                 TextInput::make('link')->label('Link (e.g. /journal/slug)')->columnSpanFull(),
                             ])
                             ->columns(2)

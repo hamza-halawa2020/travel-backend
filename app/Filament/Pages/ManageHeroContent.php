@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
+use App\Support\NormalizesStorageImages;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -17,6 +18,7 @@ use UnitEnum;
 
 class ManageHeroContent extends Page
 {
+    use NormalizesStorageImages;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
 
     protected string $view = 'filament.pages.manage-content';
@@ -35,12 +37,14 @@ class ManageHeroContent extends Page
     {
         $payload = ContentBlock::rawPayloadFor('home-content');
 
+        $slides = $this->normalizeImagesInCollection($payload['hero']['slides'] ?? []);
+
         $this->form->fill([
             'eyebrow'      => $payload['hero']['eyebrow'] ?? '',
             'title'        => $payload['hero']['title'] ?? '',
             'accent'       => $payload['hero']['accent'] ?? '',
             'description'  => $payload['hero']['description'] ?? '',
-            'slides'       => $payload['hero']['slides'] ?? [],
+            'slides'       => $slides,
             'primaryLabel' => $payload['hero']['actions']['primaryLabel'] ?? '',
             'primaryHref'  => $payload['hero']['actions']['primaryHref'] ?? '',
         ]);
@@ -63,7 +67,7 @@ class ManageHeroContent extends Page
                         Repeater::make('slides')
                             ->label('')
                             ->schema([
-                                FileUpload::make('image')->label('Image')->image()->disk('public')->directory('hero')->visibility('public')->required()->columnSpanFull(),
+                                FileUpload::make('image')->label('Image')->image()->disk('public')->visibility('public')->required()->columnSpanFull(),
                             ])
                             ->columns(2)
                             ->addActionLabel('Add Slide')

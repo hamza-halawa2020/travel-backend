@@ -5,6 +5,7 @@ namespace App\Filament\Resources\JournalArticles;
 use App\Filament\Resources\JournalArticles\Pages\ManageJournalArticles;
 use App\Models\JournalArticle;
 use App\Models\JournalCategory;
+use App\Support\NormalizesStorageImages;
 use BackedEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -28,6 +29,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class JournalArticleResource extends Resource
 {
+    use NormalizesStorageImages;
     protected static ?string $model = JournalArticle::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
@@ -35,6 +37,21 @@ class JournalArticleResource extends Resource
     protected static ?string $navigationLabel = 'Journal Articles';
 
     protected static ?string $recordTitleAttribute = 'title';
+
+    public static function mutateFormDataBeforeFill(array $data): array
+    {
+        $data['image'] = static::normalizeImageForUpload($data['image'] ?? null);
+
+        // Normalize section images
+        if (isset($data['sections']) && is_array($data['sections'])) {
+            $data['sections'] = array_map(function (array $section): array {
+                $section['image_src'] = static::normalizeImageForUpload($section['image_src'] ?? null);
+                return $section;
+            }, $data['sections']);
+        }
+
+        return $data;
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -52,7 +69,7 @@ class JournalArticleResource extends Resource
                         ->columnSpanFull(),
                     Textarea::make('dek')->required()->columnSpanFull(),
                     Textarea::make('excerpt')->required()->columnSpanFull(),
-                    FileUpload::make('image')->label('Image')->image()->disk('public')->directory('articles')->visibility('public')->required()->columnSpanFull(),
+                    FileUpload::make('image')->label('Image')->image()->disk('public')->visibility('public')->required()->columnSpanFull(),
                     TextInput::make('alt')->required()->columnSpanFull(),
                 ])
                 ->columns(2),
@@ -75,7 +92,7 @@ class JournalArticleResource extends Resource
                             TagsInput::make('bullets')
                                 ->label('Bullet Points')
                                 ->columnSpanFull(),
-                            FileUpload::make('image_src')->label('Image')->image()->disk('public')->directory('article-sections')->visibility('public')->columnSpanFull(),
+                            FileUpload::make('image_src')->label('Image')->image()->disk('public')->visibility('public')->columnSpanFull(),
                             TextInput::make('image_alt')->label('Image Alt')->columnSpanFull(),
                             TextInput::make('image_caption')->label('Image Caption')->columnSpanFull(),
                         ])
@@ -116,6 +133,7 @@ class JournalArticleResource extends Resource
                         ->multiple()
                         ->preload()
                         ->searchable()
+                        ->exists(false)
                         ->columnSpanFull(),
                 ]),
         ]);
@@ -131,7 +149,19 @@ class JournalArticleResource extends Resource
                 IconColumn::make('is_published')->label('Published')->boolean(),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->mutateFormDataUsing(function (array $data): array {
+                        $data['image'] = static::normalizeImageForUpload($data['image'] ?? null);
+
+                        if (isset($data['sections']) && is_array($data['sections'])) {
+                            $data['sections'] = array_map(function (array $section): array {
+                                $section['image_src'] = static::normalizeImageForUpload($section['image_src'] ?? null);
+                                return $section;
+                            }, $data['sections']);
+                        }
+
+                        return $data;
+                    }),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
+use App\Support\NormalizesStorageImages;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -18,6 +19,7 @@ use UnitEnum;
 
 class ManageServicesContent extends Page
 {
+    use NormalizesStorageImages;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBriefcase;
 
     protected string $view = 'filament.pages.manage-content';
@@ -37,7 +39,7 @@ class ManageServicesContent extends Page
         $payload = ContentBlock::rawPayloadFor('home-content');
 
         $this->form->fill([
-            'services' => $payload['services'] ?? [],
+            'services' => $this->normalizeImagesInCollection($payload['services'] ?? []),
         ]);
     }
 
@@ -57,7 +59,7 @@ class ManageServicesContent extends Page
                                         TextInput::make('eyebrow')->label('Eyebrow (e.g. No. 01)'),
                                         TextInput::make('title')->label('Title')->required(),
                                         TextInput::make('tag')->label('Tag / Desk Name'),
-                                        FileUpload::make('image')->label('Image')->image()->disk('public')->directory('services')->visibility('public')->columnSpanFull(),
+                                        FileUpload::make('image')->label('Image')->image()->disk('public')->visibility('public')->columnSpanFull(),
                                         TextInput::make('link')->label('Link (e.g. /journal/slug)')->columnSpanFull(),
                                         Textarea::make('summary')->label('Summary')->rows(2)->columnSpanFull(),
                                     ])->columns(2),
